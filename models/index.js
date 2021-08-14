@@ -10,3 +10,5 @@ User.hasMany(Cupboard, {
 Cupboard.belongsTo(User, {
     foreignKey: 'user_id'
 });
+
+module.exports={User,Ingredient,Cupboard}

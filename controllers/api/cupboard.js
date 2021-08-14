@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Cupboard } = require('../../model');
+const { Cupboard } = require('../../models');
 const withAuth = require('../../utils/auth.js');
 // withAuth,
 // Prevent non logged in users from viewing the homepage
