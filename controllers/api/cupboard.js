@@ -3,13 +3,11 @@ const { Cupboard } = require('../../model');
 const withAuth = require('../../utils/auth.js');
 // withAuth,
 // Prevent non logged in users from viewing the homepage
-router.post('/',  withAuth, async (req, res) => {
+router.post('/',   async (req, res) => {
   try {
     const newCupboard = await Cupboard.create({
-        fooditem: req.body.food_item,
-        quantity: req.body.quantity,
-        unitOfMeasure:  req.session.unit_of_measure,
-        expDate: req.session.exp_date
+        ...req.body
+
     });
     
     return res.json(newCupboard)
@@ -23,14 +21,11 @@ router.post('/',  withAuth, async (req, res) => {
 });
 
 //Update Cupboard item - may only need to update quantity
-router.put('/:id',  withAuth, async (req, res) => {
+router.put('/:id',   async (req, res) => {
   try {
     const updateBlog = await Cupboard.update(
       {
-        fooditem: req.body.food_item,
-        quantity: req.body.quantity,
-        unitOfMeasure:  req.session.unit_of_measure,
-        expDate: req.session.exp_date
+        ...req.body
       },
       {where: {
         id: req.params.id}
@@ -46,7 +41,7 @@ router.put('/:id',  withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id',  withAuth, async (req, res) => {
+router.delete('/:id',   async (req, res) => {
   try {
     const updateBlog = await Cupboard.destroy(
       {title: req.body.title,
