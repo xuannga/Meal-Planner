@@ -44,9 +44,6 @@ router.put('/:id',   async (req, res) => {
 router.delete('/:id',   async (req, res) => {
   try {
     const updateBlog = await Cupboard.destroy(
-      {title: req.body.title,
-        content: req.body.content,
-        commentor:  req.session.user_id},
       {where: {
         id: req.params.id}
   });
@@ -61,4 +58,4 @@ router.delete('/:id',   async (req, res) => {
   }
 });
 
-module.exports = router
+module.exports=router;
