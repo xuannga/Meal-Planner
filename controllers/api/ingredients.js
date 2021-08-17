@@ -29,7 +29,7 @@ router.post('/',   async (req, res) => {
           id: req.params.id}
     });
       
-      return res.json(updateBlog)
+      return res.json(updateIngredient)
    
       // });
     } catch (err) {
