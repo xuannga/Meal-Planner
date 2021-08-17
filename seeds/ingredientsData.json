@@ -1,0 +1,11 @@
+[{
+        "user_id": 1,
+        "cupboard_id": 1,
+        "quantity": 1
+    },
+    {
+        "user_id": 2,
+        "cupboard_id": 2,
+        "quantity": 1
+    }
+]
