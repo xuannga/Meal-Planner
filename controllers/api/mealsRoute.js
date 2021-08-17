@@ -37,16 +37,24 @@ const withAuth = require('../../utils/auth.js');
       }
     });
     
-    router.delete('/:id', async (req, res) => {
-      try {
-        const mealData = await Meals.destroy(
-          {
-            ...req.body
-          },
-          {where: {
-            id: req.params.id}
+router.delete('/:id', async (req, res) => {
+  try {
+    const mealData = await Meals.destroy(
+      {
+        ...req.body
+      },
+      {
+        where: {
+          id: req.params.id
+        }
       });
-        
-        return res.json(mealData)
+
+    return res.json(mealData)
+  } catch (err) {
+    console.log(err)
+
+    res.status(500).json(err);
+  }
+});
      
 module.exports = router;
