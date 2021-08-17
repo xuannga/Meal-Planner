@@ -32,6 +32,7 @@ add ingredients to cupboard
 # Meals
 - id
 - name
+- instructions
 ​
 ​
 # Ingredients (Pivot table)
