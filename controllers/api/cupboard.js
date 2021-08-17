@@ -3,7 +3,7 @@ const { Cupboard } = require('../../models');
 const withAuth = require('../../utils/auth.js');
 // withAuth,
 // Prevent non logged in users from viewing the homepage
-router.post('/',   async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newCupboard = await Cupboard.create({
         ...req.body
@@ -21,7 +21,7 @@ router.post('/',   async (req, res) => {
 });
 
 //Update Cupboard item - may only need to update quantity
-router.put('/:id',   async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const updateBlog = await Cupboard.update(
       {
@@ -41,7 +41,7 @@ router.put('/:id',   async (req, res) => {
   }
 });
 
-router.delete('/:id',   async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const updateBlog = await Cupboard.destroy(
       {title: req.body.title,
