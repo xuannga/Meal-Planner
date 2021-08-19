@@ -1,0 +1,20 @@
+[{
+        "name": "chicken",
+        "quantity": "2",
+        "UOM": "pieces",
+        "user_id": 1
+    },
+    {
+        "name": "broccoli",
+        "quantity": "2",
+        "UOM": "lbs",
+        "user_id": 1
+    },
+    {
+        "name": "penne",
+        "quantity": "1",
+        "UOM": "box",
+        "user_id": 1
+    }
+
+]
