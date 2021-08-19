@@ -1,0 +1,21 @@
+<section>
+<h1>Cupboard</h1>
+<div class="Refrig">
+<h2> Refrigerated Items </h2>
+{{#each Refrigs as |Refrig|}}
+
+{{> refrig-details }}
+
+{{/each}}
+
+</div>
+<div class="Drygoods">
+<h2>Dry Good Items</h2>    
+{{#each Drygoods as |Drygood|}}
+
+{{> drygood-details }}
+
+{{/each}}
+
+</div>
+</section>

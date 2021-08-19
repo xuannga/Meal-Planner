@@ -30,8 +30,11 @@ Cupboard.init(
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        isRefrig:{
+            type: DataTypes.BOOLEAN,
+            allowNull:false
         }
-
     },
     {
         sequelize,
