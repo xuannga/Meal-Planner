@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Planner</title>
+  {{!-- May have to change href here --}}
+  <link rel="stylesheet" href="/public/css/jass.css">
+</head>
+
+<body>
+  <header class="display-flex justify-space-around align-center p-2" style= "background-color: black;">
+   
+      <h1 class="" style="color: white;">Meal Planner</h1>
+
+    <nav>
+      <a class="btn" id="HomePage" style="color:white;" href="/">Home Page</a>
+   {{!-- {{#if logged_in}} --}}
+      <a class="btn" id="MyDashboard" style="color:white;" href="/dashboard">MyDashboard</a>
+      <button class="btn" id="logout" style="color:white;" href="/logout">LogOut</button>
+    {{!-- {{else}} --}}
+      <a class="btn" id="login" style="color:white;"  href="/login">LogIn/SignUp</a>
+    {{!-- {{/if}} --}}
+  </nav>
+  </header>
+  <main class="container container-fluid mt-5">
+    {{{ body }}}
+
+  </main>
+  <footer>
+      
+  </footer>
+
+  <!-- Only include the logout script if the user is logged in -->
+  {{!-- {{#if logged_in}} --}}
+  <script src="/js/logout.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  {{!-- {{/if}} --}}
+
+</body>
+
+</html>
