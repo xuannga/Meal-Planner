@@ -39,9 +39,6 @@ router.delete('/:id', async (req, res) => {
   try {
     const planData = await MealPlan.destroy(
       {
-        ...req.body
-      },
-      {
         where: {
           id: req.params.id
         }
