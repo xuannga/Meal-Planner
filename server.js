@@ -31,7 +31,7 @@ async function init() {
     const hbs = exphbs.create();
     app.engine('handlebars', hbs.engine);
     app.set('view engine', 'handlebars');
-
+   
     // Middleware for parsing requests
     app.use( express.json() );
     app.use( express.urlencoded( {extended: true} ) );

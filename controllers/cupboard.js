@@ -4,7 +4,7 @@ const { Cupboard } = require('../models');
 
 router.get('/', async (req,res) =>{
     try {
-
+console.log("hitting cupboard")
 const Refrigitems = await Cupboard.findAll(
     {where: {isRefrig: true}}
 );
@@ -15,7 +15,7 @@ const Dryitems = await Cupboard.findAll(
 
 let Refrigs = Refrigitems.map(c=>c.get({plain:true}));
 let Drys = Dryitems.map(c=>c.get({plain:true}));
-
+console.log(Refrigs)
 res.render('cupboard',{
     Refrigs,
     Drys

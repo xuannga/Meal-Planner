@@ -4,16 +4,15 @@
 <h2> Refrigerated Items </h2>
 {{#each Refrigs as |Refrig|}}
 
-{{> refrig-details }}
+{{>refrig-details Refrig=Refrig}}
 
 {{/each}}
-
 </div>
 <div class="Drygoods">
 <h2>Dry Good Items</h2>    
-{{#each Drygoods as |Drygood|}}
+{{#each Drys as |Drygood|}}
 
-{{> drygood-details }}
+{{>drygood-details Drygood=Drygood}}
 
 {{/each}}
 
