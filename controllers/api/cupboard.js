@@ -58,4 +58,36 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  try {
+    const Cupbd = await Cupboard.findAll({});
+    
+    return res.json(Cupbd)
+ 
+    // });
+  } catch (err) {
+    console.log(err)
+   
+    res.status(500).json(err);
+  }
+});
+
+router.post('/', async (req, res) => {
+  try {
+    const Cupbd = await Cupboard.findAll({
+      where: {
+        id: req.params.id}
+    });
+    
+    return res.json(Cupbd)
+ 
+    // });
+  } catch (err) {
+    console.log(err)
+   
+    res.status(500).json(err);
+  }
+});
+
+
 module.exports=router;
