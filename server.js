@@ -6,6 +6,8 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const path = require('path');
 
+const passport = require('passport');
+
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -27,6 +29,10 @@ async function init() {
 
     app.use( session(sess) );
 
+    // Initialize Passport
+    app.use(passport.initialize());
+    app.use(passport.session());
+
     // Initialize Handlebars engine and set app's view engine to handlebars.
     const hbs = exphbs.create();
     app.engine('handlebars', hbs.engine);
@@ -47,6 +53,9 @@ async function init() {
     } catch (error) {
         console.error(error)
     }
+
+    const { User } = require('./models')
+    require('./config/passport')(passport, User)
 
     app.listen( PORT, () => console.log(`Listening on port: ${PORT}`) );
 }
