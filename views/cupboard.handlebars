@@ -1,20 +1,29 @@
 <section>
 <h1>Cupboard</h1>
 <div class="Refrig">
-<h2> Refrigerated Items </h2>
+<h3> Refrigerated Items </h3>
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Unit of Measure</th>
+  </tr>
 {{#each Refrigs as |Refrig|}}
-
 {{>refrig-details Refrig=Refrig}}
-
 {{/each}}
+</table>
 </div>
 <div class="Drygoods">
-<h2>Dry Good Items</h2>    
+<h3>Dry Good Items</h3> 
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Unit of Measure</th>
+  </tr>   
 {{#each Drys as |Drygood|}}
-
 {{>drygood-details Drygood=Drygood}}
-
 {{/each}}
-
+</table>
 </div>
 </section>
