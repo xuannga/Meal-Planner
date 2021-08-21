@@ -1,9 +1,12 @@
 const router = require('express').Router();
+const cupboard = require('./cupboard');
+const meals = require('./mealsRoute')
+const ingredients = require('./ingredients');
+const userRoutes = require('./userRoutes');
 
-const apiRoutes = require('./api');
-const homeRoutes = require('./homeRoutes');
-
-router.use('/api', apiRoutes);
-router.use('/', homeRoutes);
+router.use('/ingredients', ingredients);
+router.use('/cupboard', cupboard);
+router.use('/users', userRoutes);
+router.use('/meals', meals);
 
 module.exports = router;
