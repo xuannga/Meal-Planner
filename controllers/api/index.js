@@ -7,9 +7,9 @@ const plan = require('./mealplanRoute');
 
 
 router.use('/ingredients', ingredients);
-router.use('/cupboard', cupboard);
+router.use('/cupboards', cupboard);
 router.use('/users', userRoutes);
 router.use('/meals', meals);
-router.use('/plan',plan)
+router.use('/plan',plan);
 
 module.exports = router;
