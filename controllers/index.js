@@ -1,9 +1,11 @@
 const router = require('express').Router();
 
 const apiRoutes = require('./api');
-const cupboardRoutes = require('./cupboard');
+const homeRoutes = require('./homeRoutes');
+const cupboard = require('./cupboard');
 
 router.use('/api', apiRoutes);
-router.use('/cupboard', cupboardRoutes);
+router.use('/', homeRoutes);
+router.use('/cupboard', cupboard);
 
 module.exports = router;
