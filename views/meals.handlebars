@@ -1,15 +1,17 @@
+{{#each placeholders as |placeholder|}}
 <div class="meal-card">
   <div class="meal-card-header">
-    {{name}}
+    {{placeholder.name}}
   </div>
   <div class="card-body">
     <p>
       Instructions:
-      {{instructions}}
+      {{placeholder.instructions}}
     </p>
     <p>
       Meal created by:
-      {{user_id}}
+      {{placeholder.user_id}}
     </p>
   </div>
 </div>
+{{/each}}
