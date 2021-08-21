@@ -1,50 +1,36 @@
-const bCrypt = require('bcrypt')
-const User = require('../models/User')
-const passport = require('passport')
+const bCrypt = require('bcrypt');
+const User = require('../models/User');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
-/**
-     * @param {passport} passport
-     * @param {User} user
- */
-async function main(passport, user) {
+passport.use('local-signup', new LocalStrategy(
+    {
+        usernameField: 'email',
+        passwordField: 'password',
+        passReqToCallback: true,
+    },
 
-    const User = user;
-    const LocalStrategy = require('passport-local').Strategy;
+    async function(req, email, password, done) {
 
-    passport.use('local-signup', new LocalStrategy(
+        var generateHash = function(password) {
+            return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+        };
 
-        // Corresponds our login info with passports built in attributes for username and password.
-        {
-            usernameField: 'email',
-            passwordField: 'password',
-            passReqToCallback: true,
-
-        },
-
-        async function (req, email, password, done) {
-
-            var generateHash = function(password) {
-                return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
-            };
-
+        try {
             const userData = await User.findOne({
-                where: {
-                    email: email
-                }
-            })
+                where: {email: email}
+            });
 
             if (userData) {
-                return done(null, false, { message: 'That email is already taken' });
+                return done(null, false, {message: 'That emial is already registered'})
             } else {
-                var userPassword = generateHash(password);
+                const passwordHash = generateHash(password);
 
-                var data = {
+                const newUser = await User.create({
                     email: email,
-                    password: userPassword,
-                    name: req.body.name
-                };
-
-                const newUser = await User.create(data)
+                    password: passwordHash,
+                    name: req.body.name,
+                })
 
                 if (!newUser) {
                     return done(null, false);
@@ -53,9 +39,32 @@ async function main(passport, user) {
                 if (newUser) {
                     return done(null, newUser);
                 }
-            }
-        }
-    ));
-}
 
-module.exports = main
+            }
+        } catch(err) {
+            console.error(err);
+            return done(err)
+        }
+    }
+));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(async function(id, done) {
+
+    try {
+        userData = await User.findByPk(id);
+
+        if (userData) {
+            done(null, userData.get( {plain:true} ));
+        } else {
+            done(Error('No user with that id'), null);
+        }
+    } catch (err) {
+        console.error(err)
+    }
+});
+
+module.exports = passport
