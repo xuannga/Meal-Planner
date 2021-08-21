@@ -1,45 +1,40 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require("../config/connection");
 
-class Cupboard extends Model {}
+class MealPlan extends Model {}
 
-Cupboard.init(
+MealPlan.init(
     {
-
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-
-        name: {
-            type: DataTypes.STRING,
+        meal_date:{
+            type: DataTypes.DATEONLY,
+            allowNull: true
+        },
+        meal_type:{
+            type:DataTypes.STRING,
             allowNull: false
         },
-
-        quantity: {
+        meal_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-
-        UOM: {
-            type: DataTypes. STRING
-        },
-
-        user_id: {
+        meal_qty: {
             type: DataTypes.INTEGER,
             allowNull: false
-        },
-        isRefrig:{
-            type: DataTypes.BOOLEAN,
-            allowNull:false
         }
     },
     {
         sequelize,
-        modelName: 'Cupboard'
+        freezeTableName: true,
+        underscored: true,
+        timestamps: true,
+        modelName: 'mealplan'
     }
 );
 
-module.exports = Cupboard
+module.exports = MealPlan

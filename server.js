@@ -31,13 +31,22 @@ async function init() {
     const hbs = exphbs.create();
     app.engine('handlebars', hbs.engine);
     app.set('view engine', 'handlebars');
-
+   
     // Middleware for parsing requests
     app.use( express.json() );
     app.use( express.urlencoded( {extended: true} ) );
     app.use( express.static( path.join(__dirname, 'public')));
 
+    const passport = require('./config/passport');
+    // Initialize Passport
+    app.use(passport.initialize());
+    app.use(passport.session());
+
     app.use(routes);
+
+    app.use(function(err, req, res, next) {
+        console.log(err);
+    });
 
     // Initialize database connection
     try {

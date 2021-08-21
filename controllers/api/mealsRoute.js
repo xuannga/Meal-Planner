@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth.js');
     
     router.post('/:id', async (req, res) => {
       try { 
-        const mealData = await meal.create({
+        const mealData = await Meals.create({
         name: req.body.name,
         instructions: req.body.instructions,
       });
