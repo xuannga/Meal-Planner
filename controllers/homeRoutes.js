@@ -5,10 +5,9 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/dashboard',
-    failureRedirect: '/login',
-}))
+router.post('/signup', passport.authenticate('local-signup'), (req, res) => {
+    res.status(200).json( {message: 'signup successful'} )
+})
 
 router.get('/dashboard', (req, res) => {
     res.render('dashboard');
