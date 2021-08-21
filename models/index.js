@@ -33,7 +33,6 @@ Meals.belongsToMany(Cupboard, {
     through:{
         model: Ingredient,
         unique: false,
-        // foreignKey: 'meal_id'
     } ,
     as:'meal_cupboard'
 });
@@ -42,7 +41,6 @@ Cupboard.belongsToMany(Meals,{
     through:{
         model: Ingredient,
         unique: false,
-        // foreignKey: 'cupboard_id'
     },
     as: 'cupboard_meal'
 });
