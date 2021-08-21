@@ -18,4 +18,8 @@ router.get('/planning', withAuth, (req, res) => {
 });
 
 
+router.get('/mealplan', withAuth, (req, res) => {
+    res.render('plannedMealView')
+})
+
 module.exports = router;
