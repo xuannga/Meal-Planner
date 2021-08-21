@@ -60,7 +60,7 @@ router.delete('/:id', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const Cupbd = await Cupboard.findAll({});
+    const Cupbd = await Cupboard.findAll();
     
     return res.json(Cupbd)
  
@@ -72,7 +72,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const Cupbd = await Cupboard.findAll({
       where: {
