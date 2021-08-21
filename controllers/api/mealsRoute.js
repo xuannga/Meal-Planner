@@ -28,7 +28,7 @@ const withAuth = require('../../utils/auth.js');
       });
         
         return res.json(mealData)
-
+r2
 
       } catch (err) {
         console.log(err)
@@ -56,5 +56,6 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-     
+
+
 module.exports = router;
