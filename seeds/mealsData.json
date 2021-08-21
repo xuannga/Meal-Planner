@@ -2,4 +2,14 @@
     "name": "chicken broccoli penne",
     "instructions": "mix all ingredients together and cook till done",
     "user_id": 1
-}]
+},{
+    "name": "hamburger salad",
+    "instructions": "mix all ingredients together and cook till done",
+    "user_id": 1
+},
+{
+    "name": "Granola yogurt",
+    "instructions": "mix all ingredients together and cook till done",
+    "user_id": 1
+}
+]
