@@ -37,7 +37,16 @@ async function init() {
     app.use( express.urlencoded( {extended: true} ) );
     app.use( express.static( path.join(__dirname, 'public')));
 
+    const passport = require('./config/passport');
+    // Initialize Passport
+    app.use(passport.initialize());
+    app.use(passport.session());
+
     app.use(routes);
+
+    app.use(function(err, req, res, next) {
+        console.log(err);
+    });
 
     // Initialize database connection
     try {
