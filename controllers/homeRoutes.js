@@ -9,4 +9,12 @@ router.get('/dashboard', withAuth, (req, res) => {
     res.render('dashboard');
 })
 
+router.get('/', (req, res) => {
+    res.render('homepage')
+})
+
+router.get('/meals', withAuth, (req, res) => {
+    res.render('planningMeals')
+})
+
 module.exports = router;
