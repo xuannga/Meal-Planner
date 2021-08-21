@@ -1,23 +1,85 @@
 [{
-        "name": "chicken",
-        "quantity": "2",
-        "UOM": "pieces",
-        "user_id": 1,
-        "isRefrig": true
-    },
-    {
-        "name": "broccoli",
-        "quantity": "2",
-        "UOM": "lbs",
-        "user_id": 1,
-        "isRefrig": true
-    },
-    {
-        "name": "penne",
-        "quantity": "1",
-        "UOM": "box",
-        "user_id": 1,
-        "isRefrig": false
-    }
-
+    "name": "chicken",
+    "quantity": "2",
+    "UOM": "pieces",
+    "user_id": 1,
+    "isRefrig": true
+},
+{
+    "name": "broccoli",
+    "quantity": "2",
+    "UOM": "lbs",
+    "user_id": 1,
+    "isRefrig": true
+},
+{
+    "name": "penne",
+    "quantity": "1",
+    "UOM": "box",
+    "user_id": 1,
+    "isRefrig": false
+},
+{
+    "name": "rice",
+    "quantity": "1",
+    "UOM": "box",
+    "user_id": 1,
+    "isRefrig": false
+},
+{
+    "name": "Apples",
+    "quantity": "6",
+    "UOM": "item",
+    "user_id": 1,
+    "isRefrig": false
+},
+{
+    "name": "ChickenNoodleSoup",
+    "quantity": "4",
+    "UOM": "can",
+    "user_id": 1,
+    "isRefrig": false
+},
+{
+    "name": "GroundBeef",
+    "quantity": "3",
+    "UOM": "lb",
+    "user_id": 1,
+    "isRefrig": true
+},
+{
+    "name": "Onions-Yellow",
+    "quantity": "2",
+    "UOM": "item",
+    "user_id": 1,
+    "isRefrig": false
+},
+{
+    "name": "Tomatoe Sauce",
+    "quantity": "2",
+    "UOM": "can",
+    "user_id": 1,
+    "isRefrig": false
+},
+{
+    "name": "Tomatoe-Red",
+    "quantity": "2",
+    "UOM": "item",
+    "user_id": 1,
+    "isRefrig": false
+},
+{
+    "name": "Milk",
+    "quantity": "1",
+    "UOM": "quart",
+    "user_id": 1,
+    "isRefrig": true
+},
+{
+    "name": "Lettuce",
+    "quantity": "1",
+    "UOM": "item",
+    "user_id": 1,
+    "isRefrig": true
+}
 ]

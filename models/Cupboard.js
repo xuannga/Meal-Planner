@@ -31,6 +31,7 @@ Cupboard.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        
         isRefrig:{
             type: DataTypes.BOOLEAN,
             allowNull:false

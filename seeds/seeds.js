@@ -9,6 +9,7 @@ const userData = require('./userData.json');
 const mealPlanData = require('./mealPlanData.json');
 
 const seedDatabase = async () => {
+try{
     await sequelize.sync({ force: true });
 
     await User.bulkCreate(userData, {
@@ -17,12 +18,13 @@ const seedDatabase = async () => {
     });
 
     await Cupboard.bulkCreate(cupboardData);
-
+    await Meals.bulkCreate(mealsData);
     await Ingredient.bulkCreate(ingredientsData);
 
-    await Meals.bulkCreate(mealsData);
-
-    await MealPlan.bulkCreate(mealPlanData);
+    await MealPlan.bulkCreate(mealPlanData);}
+    catch(err){
+        console.error(err)
+    }
 
 
     process.exit(0);
