@@ -48,6 +48,44 @@ passport.use('local-signup', new LocalStrategy(
     }
 ));
 
+passport.use('local-login', new LocalStrategy (
+
+    {
+        usernameField: 'email',
+        passwordField: 'password',
+        passReqToCallback: true,
+    },
+
+    async function(req, email, password, done) {
+        
+        var isValidPassword = function(storedHash, password) {
+            return bCrypt.compareSync(password, storedHash);
+        }
+
+        try {
+            
+            userData = await User.findOne({
+                where: {email: email}
+            })
+
+            if (!userData) {
+                return done(null, false, {message: 'Incorrect email or password'})
+            }
+
+            if (!isValidPassword(userData.password, password)) {
+                return done(null, false, {message: 'Incorrect email or password'})
+            }
+
+            const user = userData.get({plain:true})
+            return done(null, user)
+
+        } catch (err) {
+            console.error(err);
+            return done(err)
+        }
+    }
+))
+
 passport.serializeUser(function(user, done) {
     done(null, user.id);
 });

@@ -11,11 +11,11 @@ const loginFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    // if (response.ok) {
-    //   document.location.replace('/');
-    // } else {
-    //   alert('Failed to log in.');
-    // }
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to log in.');
+    }
   }
 };
 
@@ -27,7 +27,7 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#password-signup').value.trim();
 
   if (name && email && password) {
-    const response = await fetch('/signup', {
+    const response = await fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },

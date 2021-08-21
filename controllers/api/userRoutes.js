@@ -1,50 +1,17 @@
 const User = require('../../models/User');
 const router = require('express').Router();
+const passport = require('../../config/passport');
 
-router.post('/', async (req, res) => {
+router.post('/', passport.authenticate('local-signup'), (req, res) => {
 
-    try {
-        
-        const userData = await User.create(req.body);
+    res.status(200).json( {message: 'signup successful'} )
 
-        req.session.user_id = userData.id;
-        req.session.logged_in = true;
+})
 
-        res.status(200).json(userData);
+router.post('/login', passport.authenticate('local-login'), (req, res) => {
 
-    } catch (error) {
-        console.error(error);
-        res.status(500).json(error)
-    }
+    res.status(200).json( {message: 'login successful'} )
 
-});
-
-router.post('/login', async (req, res) => {
-
-    try {
-        
-        const userData = await User.findOne( { where: {email: req.body.email} } );
-
-        if (!userData) {
-            res.status(400).json({ message: 'Incorrect email or password.' });
-            return;
-        }
-
-        const validPassword = await userData.checkPassword(req.body.password);
-
-        if (!validPassword) {
-            res.status(400).json({ message: 'Incorrect email or password.' });
-            return;
-        }
-
-        req.session.user_id = userData.id;
-        req.session.logged_in = true;
-
-        res.json({ user: userData, message: `You are now logged in. Id = ${userData.id}` });
-
-    } catch (error) {
-        res.status(500).json(error)
-    }
 })
 
 router.post('/logout', (req, res) => {
