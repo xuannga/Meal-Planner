@@ -8,7 +8,8 @@ router.post('/', async (req, res) => {
     const [CupboardItem,created] = await Cupboard.findOrCreate({
        where:{name:req.body.name} ,
        defaults: {
-        ...req.body
+        ...req.body,
+        user_id: req.user.id
        }
       });
       if(created){
