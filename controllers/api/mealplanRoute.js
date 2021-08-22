@@ -80,14 +80,13 @@ router.get('/:id', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const planData = await MealPlan.findAll(
-      {
-        ...req.body
-      },
-      {
-      });
 
-    return res.json(planData)
+    const planningData = await MealPlan.findAll({
+      include: [{ model: Meals }]
+    });
+
+    res.status(200).json(planningData);
+
   } catch (err) {
     console.log(err)
 

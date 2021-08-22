@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { Meals } = require('../models')
+const { Meals, MealPlan } = require('../models')
 
 router.get('/login', (req, res) => {
     res.render('login');
@@ -24,9 +24,71 @@ router.get('/mealplan', withAuth, async (req, res) => {
         
         const mealData = await Meals.findAll();
 
-        meals = mealData.map( (meal) => meal.get({ plain: true}) )
+        meals = mealData.map( (meal) => meal.get({ plain: true}) );
 
-        res.render('plannedMealView', { meals })
+        const planningData = await MealPlan.findAll({
+            include: [{ model: Meals }]
+        });
+
+        plans = planningData.map( (plan) => plan.get({ plain: true}))
+
+        let Monday = []
+
+        for (let i = 0; i < 3; i++) {
+
+            Monday.push( plans.shift() )
+
+        }
+
+        let Tuesday = []
+
+        for (let i = 0; i < 3; i++) {
+
+            Tuesday.push( plans.shift() )
+
+        }
+
+        let Wednesday = []
+
+        for (let i = 0; i < 3; i++) {
+
+            Wednesday.push( plans.shift() )
+
+        }
+
+        let Thursday = []
+
+        for (let i = 0; i < 3; i++) {
+
+            Thursday.push( plans.shift() )
+
+        }
+
+        let Friday = []
+
+        for (let i = 0; i < 3; i++) {
+
+            Friday.push( plans.shift() )
+
+        }
+
+        let Saturday = []
+
+        for (let i = 0; i < 3; i++) {
+
+            Saturday.push( plans.shift() )
+
+        }
+
+        let Sunday = []
+
+        for (let i = 0; i < 3; i++) {
+
+            Sunday.push( plans.shift() )
+
+        }
+
+        res.render('plannedMealView', { meals, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday})
 
     } catch (err) {
         console.error(err)

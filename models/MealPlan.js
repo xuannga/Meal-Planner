@@ -18,7 +18,7 @@ MealPlan.init(
 
         meal_qty: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         }
     },
     {
