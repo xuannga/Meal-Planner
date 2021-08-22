@@ -1,25 +1,33 @@
 const router = require('express').Router();
 const { Cupboard } = require('../../models');
 const withAuth = require('../../utils/auth.js');
-const { QueryTypes } = require('sequelize');
 // withAuth,
 // Prevent non logged in users from viewing the homepage
 router.post('/', async (req, res) => {
   try {
-    const newCupboard = await Cupboard.create({
+    const [CupboardItem,created] = await Cupboard.findOrCreate({
+       where:{name:req.body.name} ,
+       defaults: {
         ...req.body
-
-    });
-    
-    return res.json(newCupboard)
- 
-    // });
-  } catch (err) {
-    console.log(err)
-   
+       }
+      });
+      if(created){
+        return res.json(CupboardItem)
+      }
+      else{
+        const updateCupboard = await Cupboard.update(
+        {quantity: parseFloat(CupboardItem.quantity) + parseFloat(req.body.quantity)},
+        {where: {id: CupboardItem.id}}
+      );
+      return res.json(updateCupboard)
+      }
+    }
+   catch (err) {
+    console.error(err)
     res.status(500).json(err);
   }
 });
+
 
 //Update Cupboard item - may only need to update quantity
 router.put('/:id', async (req, res) => {

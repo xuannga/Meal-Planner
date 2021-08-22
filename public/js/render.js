@@ -9,7 +9,6 @@ const newCupboarditem = () => {
         isRefrig = document.querySelector('input[value="Refrig"]').checked
         const user_id = 1;
         if (name && quantity && UOM ) {
-
             const response = await fetch(`/api/cupboards/`, {
                 method: 'POST',
                 body: JSON.stringify({ name, quantity, UOM, isRefrig, user_id }),
