@@ -2,6 +2,52 @@
     <h1>Your Meals for week {{Planner.Week_Number}}</h1>
 </div>
 
+<form class="form planning-form">
+
+    <div class="form-group">
+        {{!-- radio button to choose which day user wants to add the meal  --}}
+        <h3>What day will this meal be eaten?</h3><br>
+        <input type="radio" name="day" id="monday" value=1>
+        <label for="monday">Monday</label><br>
+        <input type="radio" name="day" id="tuesday" value=2>
+        <label for="tuesday">Tuesday</label><br>
+        <input type="radio" name="day" id="wednesday" value=3>
+        <label for="wednesday">Wednesday</label><br>
+        <input type="radio" name="day" id="thursday" value=4>
+        <label for="thursday">Thursday</label><br>
+        <input type="radio" name="day" id="friday" value=5>
+        <label for="friday">Friday</label><br>
+        <input type="radio" name="day" id="saturday" value=6>
+        <label for="saturday">Saturday</label><br>
+        <input type="radio" name="day" id="sunday" value=7>
+        <label for="sunday">Sunday</label><br>
+    </div>
+
+    <div class="form-group">
+        <h3>Breakfast, Lunch, or Dinner?</h3>
+        <input type="radio" name="meal" id="breakfast" value=0>
+        <label for="monday">Breakfast</label><br>
+        <input type="radio" name="meal" id="lunch" value=1>
+        <label for="tuesday">Lunch</label><br>
+        <input type="radio" name="meal" id="dinner" value=2>
+        <label for="wednesday">Dinner</label><br>
+    </div>
+
+    <div class="form-group">
+        <label for="myMeal">Choose a meal from your Meals:</label>
+        <input list="meals" id="myMeal" name="myMeal"/>
+        <datalist id="meals">
+            {{#each meals as |meal|}}
+            <option value="{{meal.name}}">
+            {{/each}}
+        </datalist>
+    </div>
+    
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">Plan Meal</button>
+    </div>
+</form>
+
 <div class="container">
     <div>
         <h2>Monday</h2>
@@ -194,3 +240,5 @@
     </div>
 
 </div>
+
+<script src="./js/planMeal.js"></script>

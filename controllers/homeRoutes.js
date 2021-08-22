@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const withAuth = require('../utils/auth')
+const withAuth = require('../utils/auth');
+const { Meals } = require('../models')
 
 router.get('/login', (req, res) => {
     res.render('login');
@@ -18,8 +19,19 @@ router.get('/planning', withAuth, (req, res) => {
 });
 
 
-router.get('/mealplan', withAuth, (req, res) => {
-    res.render('plannedMealView')
+router.get('/mealplan', withAuth, async (req, res) => {
+    try {
+        
+        const mealData = await Meals.findAll();
+
+        meals = mealData.map( (meal) => meal.get({ plain: true}) )
+
+        res.render('plannedMealView', { meals })
+
+    } catch (err) {
+        console.error(err)
+        res.status(500).json(err)
+    }
 })
 
 module.exports = router;
