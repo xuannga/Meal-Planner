@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
 
         let Refrigs = Refrigitems.map(c => c.get({ plain: true }));
         let Drys = Dryitems.map(c => c.get({ plain: true }));
+        
         res.render('cupboard', {
             Refrigs,
             Drys
