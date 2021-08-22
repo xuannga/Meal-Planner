@@ -1,29 +1,54 @@
-<section>
-<h1>Cupboard</h1>
-<div class="Refrig">
-<h3> Refrigerated Items </h3>
-<table>
-  <tr>
-    <th>Item</th>
-    <th>Quantity</th>
-    <th>Unit of Measure</th>
-  </tr>
-{{#each Refrigs as |Refrig|}}
-{{>refrig-details Refrig=Refrig}}
-{{/each}}
-</table>
-</div>
-<div class="Drygoods">
-<h3>Dry Good Items</h3> 
-<table>
-  <tr>
-    <th>Item</th>
-    <th>Quantity</th>
-    <th>Unit of Measure</th>
-  </tr>   
-{{#each Drys as |Drygood|}}
-{{>drygood-details Drygood=Drygood}}
-{{/each}}
-</table>
-</div>
+<section style="display:flex">
+  <div style="flex-direction: column;">
+    <h1>Cupboard</h1>
+    <div class="Refrig">
+      <h3> Refrigerated Items </h3>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Unit of Measure</th>
+        </tr>
+        {{#each Refrigs as |Refrig|}}
+        {{>refrig-details Refrig=Refrig}}
+        {{/each}}
+      </table>
+    </div>
+    <div class="Drygoods">
+      <h3>Dry Good Items</h3>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Unit of Measure</th>
+        </tr>
+        {{#each Drys as |Drygood|}}
+        {{>drygood-details Drygood=Drygood}}
+        {{/each}}
+      </table>
+    </div>
+  </div>
+  <div style="margin: 2em; width:40%">
+    <h2>Input Cupboard Items</h2>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Unit of Measure</th>
+        <th>Storage</th>
+      </tr>
+      <tr>
+        <td ><input id="cupItemName" type="text"></td>
+        <td ><input id="cupItemQuantity"type="number"></td>
+        <td ><input id="cupItemUOM"type="text"></td>
+        <td>
+          <div>
+            <input type="checkbox" id="Refrig" name="Refrig" value="Refrig" checked>
+            <label for="cupbds">Refrig</label>
+          </div>
+        </td>
+        {{!-- <td ><input type="radio" name="Refrig" id="isRefrig"></td> --}}
+      </tr>
+      <input id="subCup" name='subCup' type="button" value="Submit" >
+  </div>
 </section>

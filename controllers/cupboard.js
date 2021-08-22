@@ -18,6 +18,8 @@ router.get('/', async (req, res) => {
         res.render('cupboard', {
             Refrigs,
             Drys
+
+            /* logininfo here */
         });
     }
     catch (err) {
