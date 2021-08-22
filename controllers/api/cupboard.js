@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Cupboard } = require('../../models');
 const withAuth = require('../../utils/auth.js');
+const { QueryTypes } = require('sequelize');
 // withAuth,
 // Prevent non logged in users from viewing the homepage
 router.post('/', async (req, res) => {
@@ -89,6 +90,27 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.get('/:name', async (req, res) => {
+  try {
+
+    const [Cupbdd, created] = await Cupboard.findOrCreate({
+      
+      where: { name: req.params.name} ,
+
+      defaults:{
+        ...req.body
+      }
+
+    });
+    
+    if (created){return res.json(Cupbd)}
+
+
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
 
 
 module.exports=router;
