@@ -7,15 +7,16 @@ router.get('/login', (req, res) => {
 
 router.get('/dashboard', withAuth, (req, res) => {
     res.render('dashboard');
-})
+});
 
 router.get('/', (req, res) => {
     res.render('homepage')
-})
+});
 
-router.get('/meals', withAuth, (req, res) => {
+router.get('/planning', withAuth, (req, res) => {
     res.render('planningMeals')
-})
+});
+
 
 router.get('/mealplan', withAuth, (req, res) => {
     res.render('plannedMealView')
