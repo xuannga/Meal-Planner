@@ -14,6 +14,7 @@ Meals.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     instructions: {
       type: DataTypes.TEXT

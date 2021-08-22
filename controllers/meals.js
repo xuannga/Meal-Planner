@@ -5,10 +5,9 @@ const { Meals } = require('../models');
 router.get('/', async (req, res) => {
     try {
         const CompleteMeal = await Meals.findAll();
-        console.log(CompleteMeal);
+
         let meals = CompleteMeal.map(c => c.get({ plain: true }));
 
-        
         res.render('meals', {meals});
     }
     catch (err) {

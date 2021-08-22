@@ -6,8 +6,8 @@ const withAuth = require('../../utils/auth.js');
 router.post('/', async (req, res) => {
   try {
     const newCupboard = await Cupboard.create({
-        ...req.body
-
+      ...req.body,
+      user_id: req.user.id
     });
     
     return res.json(newCupboard)

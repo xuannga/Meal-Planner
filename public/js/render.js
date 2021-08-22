@@ -11,7 +11,7 @@ const newCupboarditem = () => {
         if (name && quantity && UOM ) {
             const response = await fetch('/api/cupboards', {
                 method: 'POST',
-                body: JSON.stringify({ name, quantity, UOM, isRefrig, user_id }),
+                body: JSON.stringify({ name, quantity, UOM, isRefrig }),
                 headers: { 'Content-Type': 'application/json' },
             });
 

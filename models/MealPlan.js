@@ -9,23 +9,16 @@ MealPlan.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
         },
-        meal_date:{
-            type: DataTypes.DATEONLY,
-            allowNull: true
-        },
-        meal_type:{
-            type:DataTypes.STRING,
-            allowNull: false
-        },
+
         meal_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         },
+
         meal_qty: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         }
     },
     {
