@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {  MealPlan } = require('../../models');
+const {  MealPlan, Meals } = require('../../models');
 const withAuth = require('../../utils/auth.js');
     
     router.post('/', async (req, res) => {
@@ -17,16 +17,25 @@ const withAuth = require('../../utils/auth.js');
 
     router.put('/:id', async (req, res) => {
       try {
-        const planData = await MealPlan.update(
-          {
-            ...req.body
-          },
-          {where: {
-            id: req.params.id}
-      });
-        
-        return res.json(planData)
 
+        const mealData = await Meals.findOne(
+          {
+            where: {
+              name: req.body.mealName
+            }
+          }
+        )
+
+        const dbResponse = await MealPlan.update(
+          {
+            meal_id: mealData.id,
+          },
+          {
+            where: {id: req.params.id}
+          }
+        )
+
+        res.status(200).json(dbResponse)
 
       } catch (err) {
         console.log(err)
@@ -71,14 +80,13 @@ router.get('/:id', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const planData = await MealPlan.findAll(
-      {
-        ...req.body
-      },
-      {
-      });
 
-    return res.json(planData)
+    const planningData = await MealPlan.findAll({
+      include: [{ model: Meals }]
+    });
+
+    res.status(200).json(planningData);
+
   } catch (err) {
     console.log(err)
 
