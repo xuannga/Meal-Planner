@@ -31,7 +31,7 @@ router.get('/mealplan', withAuth, async (req, res) => {
         });
 
         plans = planningData.map( (plan) => plan.get({ plain: true}))
-
+        console.log('plan',plans)
         let Monday = []
 
         for (let i = 0; i < 3; i++) {

@@ -29,6 +29,7 @@ const withAuth = require('../../utils/auth.js');
         const dbResponse = await MealPlan.update(
           {
             meal_id: mealData.id,
+            meal_qty: req.body.mealQty
           },
           {
             where: {id: req.params.id}

@@ -34,14 +34,15 @@
     </div>
 
     <div class="form-group column is-one-third">
-        <label for="myMeal">Choose a meal from your Meals:</label>
+        <label for="myMeal">Choose a meal:</label>
         <input list="meals" id="myMeal" name="myMeal"/>
         <datalist id="meals">
             {{#each meals as |meal|}}
             <option value="{{meal.name}}">
             {{/each}}
         </datalist>
-    
+        <label for="mealQuantity">Number of People:</label>
+        <input type="number" id='mealQuantity' name='mealQuantity'>
         <button class="btn btn-primary" type="submit">Plan Meal</button>
     </div>
 </form>
@@ -172,6 +173,8 @@
         {{/if}}
     </div>
     {{/each}}
-</div>
 
+ <button id='Requirements' class="btn btn-primary" type="submit">Create Requirements</button>
+</div>
+<script src="./js/Requirements.js"></script>
 <script src="./js/planMeal.js"></script>
