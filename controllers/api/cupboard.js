@@ -5,11 +5,16 @@ const withAuth = require('../../utils/auth.js');
 // Prevent non logged in users from viewing the homepage
 router.post('/', async (req, res) => {
   try {
+    console.log(req.user)
     const [CupboardItem,created] = await Cupboard.findOrCreate({
-       where:{name:req.body.name} ,
+       where:{ [Op.and]: [{name:req.body.name} , {user_id: req.session.user.id}]},
+        //  [Op.and]: [{name:req.body.name} , {user_id: req.user.id}]},
        defaults: {
-        ...req.body,
-        user_id: req.user.id
+        name: req.body.name,
+        quantity: req.body.quantity,
+        UOM: req.body.UOM,
+        isRefrig: req.body.isRefrig,
+        user_id: req.session.user.id
        }
       });
       if(created){

@@ -24,5 +24,6 @@ const newCupboarditem = () => {
     })
 };
 
+
 newCupboarditem();
     
