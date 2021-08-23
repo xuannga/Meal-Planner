@@ -10,7 +10,7 @@
 
 body {
     color: black;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     margin: 0;
     padding: 0;
 }
@@ -24,7 +24,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #6649b8;
+    background: #f8f7fb;
 }
 
 main {
@@ -87,7 +87,7 @@ main {
 }
 
 .fas {
-    color: #ff7eee;
+    color: #ce4141;
     transition: var(--transition-speed);
 }
 
@@ -108,8 +108,7 @@ main {
     transition: var(--transition-speed);
 }
 
-.logo-text
-{
+.logo-text {
     display: inline;
     position: absolute;
     left: -999px;
@@ -126,4 +125,142 @@ main {
 
 .navbar:hover .logo svg {
     transform: rotate(-180deg);
+}
+
+
+/* Homepage */
+
+.homepage {
+    border-radius: 20px;
+    border-color: rgba(59, 0, 170, 0.616);
+    border-style: solid;
+    padding: 30px;
+    border-width: 10px;
+}
+
+.homepage p {
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.welcome {
+    font-size: 100px;
+    font-family: 'Asap Condensed', sans-serif;
+    text-align: center;
+}
+
+
+/* planning View */
+
+.planViewTitle {
+    font-size: 50px;
+    font-family: 'Asap Condensed', sans-serif;
+    padding: 30px;
+}
+
+.planningView {
+    border-radius: 20px;
+    border-color: rgba(253, 124, 4, 0.507);
+    border-style: solid;
+    padding: 30px;
+    border-width: 10px;
+}
+
+.planningView h3,
+.subtitle,
+.planMealView {
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+}
+
+.planMealView {
+    color: red
+}
+
+#planDirect {
+    padding: 0px 30px 30px 30px;
+    font-size: 20px;
+    font-family: 'Asap Condensed', sans-serif;
+}
+
+
+/* login */
+
+.loginPage {
+    border-radius: 20px;
+    border-color: rgba(7, 5, 119, 0.555);
+    border-style: solid;
+    padding: 30px;
+    border-width: 10px;
+}
+
+.loginPage h2 {
+    font-size: 50px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+
+/* media query */
+
+@media screen and (max-width: 700px) {
+    /* homepage */
+    .homepage {
+        border-radius: 10px;
+        border-color: rgba(29, 250, 103, 0.445);
+        border-style: solid;
+        padding: 15px;
+        border-width: 5px;
+    }
+    .homepage p {
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Rajdhani', sans-serif;
+    }
+    .welcome {
+        font-size: 50px;
+        font-family: 'Asap Condensed', sans-serif;
+        text-align: center;
+    }
+    /* planningView */
+    .planViewTitle {
+        font-size: 25px;
+        font-family: 'Asap Condensed', sans-serif;
+        padding: 15px;
+    }
+    .planningView {
+        border-radius: 20px;
+        border-color: rgba(253, 195, 4, 0.575);
+        border-style: solid;
+        padding: 15px;
+        border-width: 5px;
+    }
+    .planningView h3,
+    .subtitle,
+    .planMealView {
+        font-weight: bold;
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 20px;
+    }
+    .planMealView {
+        color: red
+    }
+    #planDirect {
+        padding: 0px 15px 15px 15px;
+        font-size: 10px;
+        font-family: 'Asap Condensed', sans-serif;
+    }
+    /* login */
+    .loginPage {
+        border-radius: 10px;
+        border-color: rgba(255, 5, 5, 0.335);
+        border-style: solid;
+        padding: 15px;
+        border-width: 5px;
+    }
+    .loginPage h2 {
+        font-size: 25px;
+        font-family: 'Rajdhani', sans-serif;
+    }
 }
