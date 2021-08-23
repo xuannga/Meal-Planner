@@ -7,23 +7,24 @@ router.post('/', async (req, res) => {
   try {
     console.log(req.user)
     const [CupboardItem,created] = await Cupboard.findOrCreate({
-       where:{ [Op.and]: [{name:req.body.name} , {user_id: req.session.user.id}]},
-        //  [Op.and]: [{name:req.body.name} , {user_id: req.user.id}]},
+       where:{name:req.body.name , user_id: req.user.id},
        defaults: {
         name: req.body.name,
         quantity: req.body.quantity,
         UOM: req.body.UOM,
         isRefrig: req.body.isRefrig,
-        user_id: req.session.user.id
+        user_id: req.user.id
        }
       });
       if(created){
         return res.json(CupboardItem)
       }
       else{
+        const cupb=CupboardItem.get({plain:true});
+        console.log(CupboardItem)
         const updateCupboard = await Cupboard.update(
-        {quantity: parseFloat(CupboardItem.quantity) + parseFloat(req.body.quantity)},
-        {where: {id: CupboardItem.id}}
+        {quantity: parseFloat(cupb.quantity) + parseFloat(req.body.quantity)},
+        {where: {id: cupb.id}}
       );
       return res.json(updateCupboard)
       }
