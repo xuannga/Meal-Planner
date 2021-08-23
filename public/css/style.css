@@ -86,7 +86,7 @@ main {
     margin: 2.5rem 2rem 2.5rem .75rem;
 }
 
-.fas {
+.fas,.far {
     color: #ff7eee;
     transition: var(--transition-speed);
 }

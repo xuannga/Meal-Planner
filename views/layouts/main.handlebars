@@ -75,12 +75,21 @@ td, th {
                 </a>
             </li>
 
+            {{#if logged_in}}
+            <li class="nav-item">
+                <a href="" class="nav-link" id="logout">
+                    <i class="fas fa-sign-in-alt fa-3x"></i>
+                    <span class="link-text">Logout</span>
+                </a>
+            </li>
+            {{else}}
             <li class="nav-item">
                 <a href="/login" class="nav-link">
                     <i class="fas fa-sign-in-alt fa-3x"></i>
                     <span class="link-text">Login</span>
                 </a>
             </li>
+            {{/if}}
 
         </ul>
     </nav>
@@ -100,11 +109,11 @@ td, th {
   </footer>
 
   <!-- Only include the logout script if the user is logged in -->
-  {{!-- {{#if logged_in}} --}}
-  {{!-- <script src="/js/logout.js"></script> --}}
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
           integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  {{!-- {{/if}} --}}
 
 </body>
 
