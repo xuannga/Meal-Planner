@@ -5,11 +5,16 @@ const { Cupboard } = require('../models');
 router.get('/', async (req, res) => {
     try {
         const Refrigitems = await Cupboard.findAll(
-            { where: { isRefrig: true } }
+            { where: 
+                { isRefrig: true,
+                user_id: req.user.id } }
         );
 
         const Dryitems = await Cupboard.findAll(
-            { where: { isRefrig: false } }
+            { where: 
+                { isRefrig: false,
+                user_id: req.user.id } 
+            }
         );
 
         let Refrigs = Refrigitems.map(c => c.get({ plain: true }));
@@ -18,6 +23,8 @@ router.get('/', async (req, res) => {
         res.render('cupboard', {
             Refrigs,
             Drys
+
+            /* logininfo here */
         });
     }
     catch (err) {
