@@ -1,0 +1,28 @@
+<div class="container has-text-centered" id="meal-id" data-id="{{id}}">
+    <h1 class="title">{{name}}</h1>
+</div>
+
+<p>{{instructions}}</p>
+
+<ul>
+    {{#each Cupboards as |ingredient|}}
+    <li>{{ingredient.name}}</li>
+    {{/each}}
+</ul>
+
+<form class="form ingredient-form">
+    <label for="myIngredient">Choose an item from your cupboard:</label>
+    <input list="cupboard-items" id="myIngredient" name="myIngredient" />
+    <datalist id="cupboard-items">
+        {{#each cupboard as |item|}}
+        <option value="{{item.name}}">
+        {{/each}}
+    </datalist>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="1">
+
+    <button class="btn btn-primary" type="submit">Add Ingredient</button>
+</form>
+
+<script src="/js/addIngredient.js"></script>

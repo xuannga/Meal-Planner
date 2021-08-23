@@ -3,7 +3,6 @@ const mealPlanFormHandler = async (event) => {
 
     const id = parseInt(document.querySelector('input[name="day"]:checked').value) + parseInt(document.querySelector('input[name="meal"]:checked').value);
     const mealName = document.querySelector('#myMeal').value.trim();
-    console.log(id)
 
     if (id && mealName) {
 
