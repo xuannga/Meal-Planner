@@ -1,21 +1,21 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { Meals, MealPlan } = require('../models')
+const { Meals, MealPlan, Cupboard, Ingredient } = require('../models')
 
 router.get('/login', (req, res) => {
-    res.render('login');
+    res.render('login', {logged_in: req.isAuthenticated()} );
 });
 
 router.get('/dashboard', withAuth, (req, res) => {
-    res.render('dashboard');
+    res.render('dashboard', {logged_in: req.isAuthenticated()} );
 });
 
 router.get('/', (req, res) => {
-    res.render('homepage')
+    res.render('homepage', {logged_in: req.isAuthenticated()} )
 });
 
 router.get('/planning', withAuth, (req, res) => {
-    res.render('planningMeals')
+    res.render('planningMeals', {logged_in: req.isAuthenticated()} )
 });
 
 
@@ -94,6 +94,41 @@ router.get('/mealplan', withAuth, async (req, res) => {
         console.error(err)
         res.status(500).json(err)
     }
+})
+
+router.get('/meals/:id', withAuth, async (req, res) => {
+
+    try {
+    
+        const mealData = await Meals.findByPk(req.params.id, {
+            include: {model:Cupboard}
+        });
+
+        const meal = mealData.get( { plain: true} );
+
+        const cupboardData = await Cupboard.findAll({
+            where: {
+                user_id: req.user.id
+            }
+        })
+
+        const cupboard = cupboardData.map(item => item.get({ plain: true }))
+
+        // const ingredientData = await Meals.findByPk(req.params.id, {
+        //     include: {model: Cupboard}
+        // });
+
+        // const ingredients = ingredientData.get( { plain: true} );
+
+        console.log(meal.Cupboards)
+
+        res.render('singleMealView', {...meal, cupboard, logged_in: req.isAuthenticated() } )
+
+    } catch (err) {
+        console.error(err)
+        req.status(500).json(err)
+    }
+
 })
 
 module.exports = router;

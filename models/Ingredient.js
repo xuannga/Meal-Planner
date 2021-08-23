@@ -6,14 +6,22 @@ class Ingredient extends Model {};
 Ingredient.init(
     {
 
-        user_id: {
+        meal_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            references: {
+                model: 'Meals',
+                key: 'id'
+            }
         },
         
         cupboard_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            references: {
+                model: 'Cupboard',
+                key: 'id'
+            }
         },
 
         quantity: {

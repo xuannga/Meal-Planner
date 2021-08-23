@@ -12,23 +12,26 @@ const seedDatabase = async () => {
     // Code below can be uncommented to remove fk constraints when seeding.
     // await sequelize.queryInterface.removeConstraint('ingredients', 'ingredients_ibfk_2');
 
-    await sequelize.sync({ force: true });
+    try {
+        await sequelize.sync({ force: true });
 
-    await User.bulkCreate(userData, {
-        individualHooks: true,
-        returning: true,
-    });
+        await User.bulkCreate(userData, {
+            individualHooks: true,
+            returning: true,
+        });
 
-    await Cupboard.bulkCreate(cupboardData);
+        await Cupboard.bulkCreate(cupboardData);
 
-    await Ingredient.bulkCreate(ingredientsData);
+        await Meals.bulkCreate(mealsData);
 
-    await Meals.bulkCreate(mealsData);
+        await Ingredient.bulkCreate(ingredientsData);
 
-    for (let id = 1; id <= 21; id++) {
-        await MealPlan.create({id})
+        for (let id = 1; id <= 21; id++) {
+            await MealPlan.create({id})
+        }
+    } catch (err) {
+        console.error(err)
     }
-
 
     process.exit(0);
 };
