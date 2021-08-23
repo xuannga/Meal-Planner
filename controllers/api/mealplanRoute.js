@@ -43,6 +43,59 @@ const withAuth = require('../../utils/auth.js');
         res.status(500).json(err);
       }
     });
+
+router.put('/', async (req, res) => {
+
+  try {
+
+    const mealData = await Meals.findOne(
+      {
+        where: {
+          name: req.body.mealName,
+          user_id: req.user.id
+        }
+      }
+    )
+
+    const [mealPlan, created] = await MealPlan.findOrCreate({
+      where: {
+        user_id: req.user.id,
+        day: req.body.day,
+        time: req.body.time,
+      },
+      defaults: {
+        ...req.body,
+        user_id: req.user.id,
+        meal_id: mealData.id
+      }
+    });
+
+    let dbResponse
+
+    if (created) {
+      return res.json(mealPlan);
+    } else {
+      dbResponse = await MealPlan.update({
+        meal_id: mealData.id,
+        meal_qty: req.body.meal_qty
+      },
+      {
+        where: {
+          user_id: req.user.id,
+          day: req.body.day,
+          time: req.body.time,
+        }
+      });
+    }
+
+    res.status(200).json(dbResponse)
+
+  } catch (err) {
+    console.error(err)
+    res.status(500).json(err);
+  }
+
+})
     
 router.delete('/:id', async (req, res) => {
   try {

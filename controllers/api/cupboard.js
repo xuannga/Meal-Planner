@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth.js');
 router.post('/', async (req, res) => {
   try {
     const [CupboardItem,created] = await Cupboard.findOrCreate({
-       where:{name:req.body.name} ,
+       where:{name:req.body.name, user_id:req.user.id} ,
        defaults: {
         ...req.body,
         user_id: req.user.id

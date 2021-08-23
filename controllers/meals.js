@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
 
         let meals = CompleteMeal.map(c => c.get({ plain: true }));
 
-        res.render('meals', {meals});
+        res.render('meals', {meals, logged_in: req.isAuthenticated()});
     }
     catch (err) {
         console.log(err);
