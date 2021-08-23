@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const { Cupboard } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const Refrigitems = await Cupboard.findAll(
-            { where: 
+            { where:
                 { isRefrig: true,
                 user_id: req.user.id } }
         );
