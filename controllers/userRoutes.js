@@ -1,6 +1,6 @@
-const User = require('../../models/User');
+const User = require('../models/User');
 const router = require('express').Router();
-const passport = require('../../config/passport');
+const passport = require('../config/passport');
 
 router.post('/', passport.authenticate('local-signup'), (req, res) => {
 
