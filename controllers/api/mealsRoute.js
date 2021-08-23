@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Meals } = require('../models');
-const withAuth = require('../utils/auth.js');
+const { Meals } = require('../../models');
+const withAuth = require('../../utils/auth.js');
 
     
     router.post('/:id', async (req, res) => {
