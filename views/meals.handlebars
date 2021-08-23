@@ -1,19 +1,30 @@
 {{#each meals as |meal|}}
 <div class="meal-card">
   <a href="/meals/{{meal.id}}">
-  <div class="meal-card-header">
-    {{meal.name}}
-  </div>
+    <div class="meal-card-header">
+      {{meal.name}}
+    </div>
   </a>
   <div class="card-body">
     <p>
       Instructions:
       {{meal.instructions}}
     </p>
-    <p>
-      Meal created by:
-      {{meal.user_id}}
-    </p>
   </div>
 </div>
 {{/each}}
+
+
+<form class = "meal-form">
+  <div>
+  <p>Create a new meal</p>
+  <label class="mealName">Name of meal</label><br>
+  <input type="text" id="mealName">
+
+  <label class="instructions">Instructions</label><br>
+  <input type="text" id="instructions">
+
+  <br>
+  <button id="submit" class="submit">Submit</button>
+  </div>
+</form>
