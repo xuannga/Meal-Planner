@@ -22,7 +22,8 @@ router.get('/', async (req, res) => {
         
         res.render('cupboard', {
             Refrigs,
-            Drys
+            Drys,
+            logged_in: req.isAuthenticated()
 
             /* logininfo here */
         });

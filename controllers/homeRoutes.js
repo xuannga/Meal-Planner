@@ -22,73 +22,147 @@ router.get('/planning', withAuth, (req, res) => {
 router.get('/mealplan', withAuth, async (req, res) => {
     try {
         
-        const mealData = await Meals.findAll();
+        const mealData = await Meals.findAll({
+            where: {user_id: req.user.id}
+        });
 
         meals = mealData.map( (meal) => meal.get({ plain: true}) );
 
-        const planningData = await MealPlan.findAll({
-            include: [{ model: Meals }]
+        const mondayData = await MealPlan.findAll({
+            include: [{ model: Meals }],
+            where: {
+                user_id: req.user.id,
+                day: "Monday",
+            }
         });
 
-        plans = planningData.map( (plan) => plan.get({ plain: true}))
+        const mondayDataClean = mondayData.map( (plan) => plan.get({ plain: true}))
 
-        let Monday = []
+        let Monday = {};
 
-        for (let i = 0; i < 3; i++) {
+        for (let index = 0; index < mondayDataClean.length; index++) {
 
-            Monday.push( plans.shift() )
-
+            const plan = mondayDataClean[index];
+            Monday[plan.time] = plan
+            
         }
 
-        let Tuesday = []
+        const tuesdayData = await MealPlan.findAll({
+            include: [{ model: Meals }],
+            where: {
+                user_id: req.user.id,
+                day: "Tuesday",
+            }
+        });
 
-        for (let i = 0; i < 3; i++) {
+        const tuesdayDataClean = tuesdayData.map( (plan) => plan.get({ plain: true}))
 
-            Tuesday.push( plans.shift() )
+        let Tuesday = {};
 
+        for (let index = 0; index < tuesdayDataClean.length; index++) {
+
+            const plan = tuesdayDataClean[index];
+            Tuesday[plan.time] = plan
+            
         }
 
-        let Wednesday = []
+        const wednesdayData = await MealPlan.findAll({
+            include: [{ model: Meals }],
+            where: {
+                user_id: req.user.id,
+                day: "Wednesday",
+            }
+        });
 
-        for (let i = 0; i < 3; i++) {
+        const wednesdayDataClean = wednesdayData.map( (plan) => plan.get({ plain: true}))
 
-            Wednesday.push( plans.shift() )
+        let Wednesday = {};
 
+        for (let index = 0; index < wednesdayDataClean.length; index++) {
+
+            const plan = wednesdayDataClean[index];
+            Wednesday[plan.time] = plan
+            
         }
 
-        let Thursday = []
+        // ========================================================
+        const thursdayData = await MealPlan.findAll({
+            include: [{ model: Meals }],
+            where: {
+                user_id: req.user.id,
+                day: "Thursday",
+            }
+        });
 
-        for (let i = 0; i < 3; i++) {
+        const thursdayDataClean = thursdayData.map( (plan) => plan.get({ plain: true}))
 
-            Thursday.push( plans.shift() )
+        let Thursday = {};
 
+        for (let index = 0; index < thursdayDataClean.length; index++) {
+
+            const plan = thursdayDataClean[index];
+            Thursday[plan.time] = plan
+            
+        }
+        // ========================================================
+        const fridayData = await MealPlan.findAll({
+            include: [{ model: Meals }],
+            where: {
+                user_id: req.user.id,
+                day: "Friday",
+            }
+        });
+
+        const fridayDataClean = fridayData.map( (plan) => plan.get({ plain: true}))
+
+        let Friday = {};
+
+        for (let index = 0; index < fridayDataClean.length; index++) {
+
+            const plan = fridayDataClean[index];
+            Friday[plan.time] = plan
+            
+        }
+        // ==============================================================
+        const saturdayData = await MealPlan.findAll({
+            include: [{ model: Meals }],
+            where: {
+                user_id: req.user.id,
+                day: "Saturday",
+            }
+        });
+
+        const saturdayDataClean = saturdayData.map( (plan) => plan.get({ plain: true}))
+
+        let Saturday = {};
+
+        for (let index = 0; index < saturdayDataClean.length; index++) {
+
+            const plan = saturdayDataClean[index];
+            Saturday[plan.time] = plan
+            
+        }
+        // ================================================================
+        const sundayData = await MealPlan.findAll({
+            include: [{ model: Meals }],
+            where: {
+                user_id: req.user.id,
+                day: "Sunday",
+            }
+        });
+
+        const sundayDataClean = sundayData.map( (plan) => plan.get({ plain: true}))
+
+        let Sunday = {};
+
+        for (let index = 0; index < sundayDataClean.length; index++) {
+
+            const plan = sundayDataClean[index];
+            Sunday[plan.time] = plan
+            
         }
 
-        let Friday = []
-
-        for (let i = 0; i < 3; i++) {
-
-            Friday.push( plans.shift() )
-
-        }
-
-        let Saturday = []
-
-        for (let i = 0; i < 3; i++) {
-
-            Saturday.push( plans.shift() )
-
-        }
-
-        let Sunday = []
-
-        for (let i = 0; i < 3; i++) {
-
-            Sunday.push( plans.shift() )
-
-        }
-
-        res.render('plannedMealView', { meals, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday})
+        res.render('plannedMealView', { meals, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, logged_in: req.isAuthenticated()})
 
     } catch (err) {
         console.error(err)

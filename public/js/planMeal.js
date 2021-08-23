@@ -1,14 +1,16 @@
 const mealPlanFormHandler = async (event) => {
     event.preventDefault();
 
-    const id = parseInt(document.querySelector('input[name="day"]:checked').value) + parseInt(document.querySelector('input[name="meal"]:checked').value);
+    const day = document.querySelector('input[name="day"]:checked').value;
+    const time = document.querySelector('input[name="meal"]:checked').value;
     const mealName = document.querySelector('#myMeal').value.trim();
+    const meal_qty = document.getElementById('quantity').value.trim();
 
-    if (id && mealName) {
+    if (day && mealName && time  && meal_qty) {
 
-        const response = await fetch(`/api/plan/${id}`, {
+        const response = await fetch(`/api/plan/`, {
             method: 'PUT',
-            body: JSON.stringify({mealName}),
+            body: JSON.stringify({mealName, day, time, meal_qty}),
             headers: {'Content-Type': 'application/json'},
         });
 

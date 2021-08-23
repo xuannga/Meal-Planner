@@ -29,6 +29,14 @@ MealPlan.belongsTo(Meals,{
     foreignKey:'meal_id'
 });
 
+User.hasMany(MealPlan,{
+    foreignKey: 'user_id',
+});
+
+MealPlan.belongsTo(User, {
+    foreignKey: 'user_id'
+})
+
 Cupboard.belongsToMany(Meals, {
     through: Ingredient,
     onDelete: 'CASCADE',
