@@ -5,20 +5,30 @@ const withAuth = require('../../utils/auth.js');
 // Prevent non logged in users from viewing the homepage
 router.post('/', async (req, res) => {
   try {
-    const newCupboard = await Cupboard.create({
-        ...req.body
-
-    });
-    
-    return res.json(newCupboard)
- 
-    // });
-  } catch (err) {
-    console.log(err)
-   
+    const [CupboardItem,created] = await Cupboard.findOrCreate({
+       where:{name:req.body.name} ,
+       defaults: {
+        ...req.body,
+        user_id: req.user.id
+       }
+      });
+      if(created){
+        return res.json(CupboardItem)
+      }
+      else{
+        const updateCupboard = await Cupboard.update(
+        {quantity: parseFloat(CupboardItem.quantity) + parseFloat(req.body.quantity)},
+        {where: {id: CupboardItem.id}}
+      );
+      return res.json(updateCupboard)
+      }
+    }
+   catch (err) {
+    console.error(err)
     res.status(500).json(err);
   }
 });
+
 
 //Update Cupboard item - may only need to update quantity
 router.put('/:id', async (req, res) => {
@@ -85,6 +95,28 @@ router.get('/:id', async (req, res) => {
   } catch (err) {
     console.log(err)
    
+    res.status(500).json(err);
+  }
+});
+
+router.get('/:name', async (req, res) => {
+  try {
+
+    const [Cupbdd, created] = await Cupboard.findOrCreate({
+      
+      where: { name: req.params.name} ,
+
+      defaults:{
+        ...req.body
+      }
+
+    });
+    
+    if (created){return res.json(Cupbd)}
+
+
+  } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
