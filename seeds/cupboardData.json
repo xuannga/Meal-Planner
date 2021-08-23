@@ -72,7 +72,7 @@
     "name": "Milk",
     "quantity": "1",
     "UOM": "quart",
-    "user_id": 1,
+    "user_id": 3,
     "isRefrig": true
 },
 {
@@ -80,6 +80,77 @@
     "quantity": "1",
     "UOM": "item",
     "user_id": 1,
+    "isRefrig": true
+},
+
+{
+    "name": "Beans",
+    "quantity": "1",
+    "UOM": "item",
+    "user_id": 3,
+    "isRefrig": false
+},
+{
+    "name": "MoonPies",
+    "quantity": "12",
+    "UOM": "item",
+    "user_id": 3,
+    "isRefrig": true
+},
+{
+    "name": "MartianBeans",
+    "quantity": "1",
+    "UOM": "lbs",
+    "user_id": 3,
+    "isRefrig": false
+},
+{
+    "name": "Lettuce",
+    "quantity": "5",
+    "UOM": "item",
+    "user_id": 3,
+    "isRefrig": true
+},
+{
+    "name": "penne",
+    "quantity": "12",
+    "UOM": "box",
+    "user_id": 3,
+    "isRefrig": false
+},
+{
+    "name": "Broccoli",
+    "quantity": "3",
+    "UOM": "item",
+    "user_id": 3,
+    "isRefrig": true
+},
+{
+    "name": "Tomatoes",
+    "quantity": "4",
+    "UOM": "item",
+    "user_id": 3,
+    "isRefrig": true
+},
+{
+    "name": "Yogurt",
+    "quantity": "3",
+    "UOM": "pints",
+    "user_id": 3,
+    "isRefrig": true
+},
+{
+    "name": "Granola",
+    "quantity": "6",
+    "UOM": "cups",
+    "user_id": 3,
+    "isRefrig": false
+},
+{
+    "name": "Chicken",
+    "quantity": "3",
+    "UOM": "lbs",
+    "user_id": 3,
     "isRefrig": true
 }
 ]

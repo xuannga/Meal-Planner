@@ -5,6 +5,12 @@ class Ingredient extends Model {};
 
 Ingredient.init(
     {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
 
         meal_id: {
             type: DataTypes.INTEGER,
@@ -32,7 +38,8 @@ Ingredient.init(
     },
     {
         sequelize,
-        modelName: 'Ingredient'
+        modelName: 'Ingredient',
+        timestamps: false
     }
 );
 
