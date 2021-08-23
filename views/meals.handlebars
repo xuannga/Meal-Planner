@@ -1,8 +1,10 @@
 {{#each meals as |meal|}}
 <div class="meal-card">
+  <a href="/meals/{{meal.id}}">
   <div class="meal-card-header">
     {{meal.name}}
   </div>
+  </a>
   <div class="card-body">
     <p>
       Instructions:
