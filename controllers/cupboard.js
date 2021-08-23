@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     try {
         const Refrigitems = await Cupboard.findAll(
-            { where: 
+            { where:
                 { isRefrig: true,
                 user_id: req.user.id } }
         );

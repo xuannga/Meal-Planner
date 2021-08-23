@@ -1,177 +1,182 @@
 <div class="container has-text-centered">
-    <h1 class="title">Your Meals for the week</h1>
+    <h1 class="planViewTitle">Plan for the week</h1>
+    <p id="planDirect">Here you can plan your meals by choosing the day of the week, when it will be eaten (i.e breakfast or lunch) and what will be eaten.</p>
 </div>
 
-<form class="form planning-form columns">
+<div class="planningView">
+    <form class="form planning-form columns">
+            <div class="form-group column is-one-third">
+                {{!-- radio button to choose which day user wants to add the meal  --}}
+                <h3>What day will this meal be eaten?</h3>
+                <input type="radio" name="day" id="monday" value=1>
+                <label for="monday">Monday</label><br>
+                <input type="radio" name="day" id="tuesday" value=4>
+                <label for="tuesday">Tuesday</label><br>
+                <input type="radio" name="day" id="wednesday" value=7>
+                <label for="wednesday">Wednesday</label><br>
+                <input type="radio" name="day" id="thursday" value=10>
+                <label for="thursday">Thursday</label><br>
+                <input type="radio" name="day" id="friday" value=13>
+                <label for="friday">Friday</label><br>
+                <input type="radio" name="day" id="saturday" value=16>
+                <label for="saturday">Saturday</label><br>
+                <input type="radio" name="day" id="sunday" value=19>
+                <label for="sunday">Sunday</label><br>
+            </div>
 
-    <div class="form-group column is-one-third">
-        {{!-- radio button to choose which day user wants to add the meal  --}}
-        <h3>What day will this meal be eaten?</h3>
-        <input type="radio" name="day" id="monday" value=1>
-        <label for="monday">Monday</label><br>
-        <input type="radio" name="day" id="tuesday" value=4>
-        <label for="tuesday">Tuesday</label><br>
-        <input type="radio" name="day" id="wednesday" value=7>
-        <label for="wednesday">Wednesday</label><br>
-        <input type="radio" name="day" id="thursday" value=10>
-        <label for="thursday">Thursday</label><br>
-        <input type="radio" name="day" id="friday" value=13>
-        <label for="friday">Friday</label><br>
-        <input type="radio" name="day" id="saturday" value=16>
-        <label for="saturday">Saturday</label><br>
-        <input type="radio" name="day" id="sunday" value=19>
-        <label for="sunday">Sunday</label><br>
+            <div class="form-group column is-one-third">
+                <h3>Breakfast, Lunch, or Dinner?</h3>
+                <input type="radio" name="meal" id="breakfast" value=0>
+                <label for="monday">Breakfast</label><br>
+                <input type="radio" name="meal" id="lunch" value=1>
+                <label for="tuesday">Lunch</label><br>
+                <input type="radio" name="meal" id="dinner" value=2>
+                <label for="wednesday">Dinner</label><br>
+            </div>
+
+            <div class="form-group column is-one-third">
+                <label for="myMeal">Choose a meal from your Meals:</label>
+                <input list="meals" id="myMeal" name="myMeal"/>
+                <datalist id="meals">
+                    {{#each meals as |meal|}}
+                    <option value="{{meal.name}}">
+                    {{/each}}
+                </datalist>
+            
+                <button class="btn btn-primary" type="submit">Plan Meal</button>
+            </div>
+
+    </form>
+
+
+    <div class="columns">
+
+        <div class="column is-offset-one-quarter is-one-quarter">
+            <h4 class="subtitle">Breakfast</h4>
+        </div>
+
+        <div class="column is-one-quarter">
+            <h4 class="subtitle">Lunch</h4>
+        </div>
+
+        <div class="column is-one-quarter">
+            <h4 class="subtitle">Dinner</h4>
+        </div>
+
     </div>
 
-    <div class="form-group column is-one-third">
-        <h3>Breakfast, Lunch, or Dinner?</h3>
-        <input type="radio" name="meal" id="breakfast" value=0>
-        <label for="monday">Breakfast</label><br>
-        <input type="radio" name="meal" id="lunch" value=1>
-        <label for="tuesday">Lunch</label><br>
-        <input type="radio" name="meal" id="dinner" value=2>
-        <label for="wednesday">Dinner</label><br>
+    <div class="columns">
+
+        <div class="column is-one-quarter">
+            <h4 class="subtitle">Monday</h4>
+        </div>
+        {{#each Monday as |plannedMeal|}}
+        <div class="column is-one-quarter">
+            {{#if plannedMeal.Meal}}
+            <h4 class="planMealView">{{plannedMeal.Meal.name}}</h4>
+            {{else}}
+            <h4>No Meal Selected.</h4>
+            {{/if}}
+        </div>
+        {{/each}}
     </div>
 
-    <div class="form-group column is-one-third">
-        <label for="myMeal">Choose a meal from your Meals:</label>
-        <input list="meals" id="myMeal" name="myMeal"/>
-        <datalist id="meals">
-            {{#each meals as |meal|}}
-            <option value="{{meal.name}}">
-            {{/each}}
-        </datalist>
-    
-        <button class="btn btn-primary" type="submit">Plan Meal</button>
-    </div>
-</form>
+    <div class="columns">
 
-<div class="columns">
-
-    <div class="column is-offset-one-quarter is-one-quarter">
-        <h4 class="subtitle">Breakfast</h4>
+        <div class="column is-one-quarter">
+            <h4 class="subtitle">Tuesday</h4>
+        </div>
+        {{#each Tuesday as |plannedMeal|}}
+        <div class="column is-one-quarter">
+            {{#if plannedMeal.Meal}}
+            <h4 class="planMealView">{{plannedMeal.Meal.name}}</h4>
+            {{else}}
+            <h4>No Meal Selected.</h4>
+            {{/if}}
+        </div>
+        {{/each}}
     </div>
 
-    <div class="column is-one-quarter">
-        <h4 class="subtitle">Lunch</h4>
+    <div class="columns">
+
+        <div class="column is-one-quarter">
+            <h4 class="subtitle">Wednesday</h4>
+        </div>
+        {{#each Wednesday as |plannedMeal|}}
+        <div class="column is-one-quarter">
+            {{#if plannedMeal.Meal}}
+            <h4 class="planMealView">{{plannedMeal.Meal.name}}</h4>
+            {{else}}
+            <h4>No Meal Selected.</h4>
+            {{/if}}
+        </div>
+        {{/each}}
     </div>
 
-    <div class="column is-one-quarter">
-        <h4 class="subtitle">Dinner</h4>
+    <div class="columns">
+
+        <div class="column is-one-quarter">
+            <h4 class="subtitle">Thursday</h4>
+        </div>
+        {{#each Thursday as |plannedMeal|}}
+        <div class="column is-one-quarter">
+            {{#if plannedMeal.Meal}}
+            <h4 class="planMealView">{{plannedMeal.Meal.name}}</h4>
+            {{else}}
+            <h4>No Meal Selected.</h4>
+            {{/if}}
+        </div>
+        {{/each}}
     </div>
 
-</div>
+    <div class="columns">
 
-<div class="columns">
+        <div class="column is-one-quarter">
+            <h4 class="subtitle">Friday</h4>
+        </div>
+        {{#each Friday as |plannedMeal|}}
+        <div class="column is-one-quarter">
+            {{#if plannedMeal.Meal}}
+            <h4 class="planMealView">{{plannedMeal.Meal.name}}</h4>
+            {{else}}
+            <h4>No Meal Selected.</h4>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
 
-    <div class="column is-one-quarter">
-        <h4 class="subtitle">Monday</h4>
-    </div>
-    {{#each Monday as |plannedMeal|}}
-    <div class="column is-one-quarter">
-        {{#if plannedMeal.Meal}}
-        <h4>{{plannedMeal.Meal.name}}</h4>
-        {{else}}
-        <h4>No Meal Selected.</h4>
-        {{/if}}
-    </div>
-    {{/each}}
-</div>
+    <div class="columns">
 
-<div class="columns">
+        <div class="column is-one-quarter">
+            <h4 class="subtitle">Saturday</h4>
+        </div>
+        {{#each Saturday as |plannedMeal|}}
+        <div class="column is-one-quarter">
+            {{#if plannedMeal.Meal}}
+            <h4 class="planMealView">{{plannedMeal.Meal.name}}</h4>
+            {{else}}
+            <h4>No Meal Selected.</h4>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
 
-    <div class="column is-one-quarter">
-        <h4 class="subtitle">Tuesday</h4>
-    </div>
-    {{#each Tuesday as |plannedMeal|}}
-    <div class="column is-one-quarter">
-        {{#if plannedMeal.Meal}}
-        <h4>{{plannedMeal.Meal.name}}</h4>
-        {{else}}
-        <h4>No Meal Selected.</h4>
-        {{/if}}
-    </div>
-    {{/each}}
-</div>
+    <div class="columns">
 
-<div class="columns">
+        <div class="column is-one-quarter">
+            <h4 class="subtitle">Sunday</h4>
+        </div>
+        {{#each Sunday as |plannedMeal|}}
+        <div class="column is-one-quarter">
+            {{#if plannedMeal.Meal}}
+            <h4 class="planMealView">{{plannedMeal.Meal.name}}</h4>
+            {{else}}
+            <h4>No Meal Selected.</h4>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
 
-    <div class="column is-one-quarter">
-        <h4 class="subtitle">Wednesday</h4>
-    </div>
-    {{#each Wednesday as |plannedMeal|}}
-    <div class="column is-one-quarter">
-        {{#if plannedMeal.Meal}}
-        <h4>{{plannedMeal.Meal.name}}</h4>
-        {{else}}
-        <h4>No Meal Selected.</h4>
-        {{/if}}
-    </div>
-    {{/each}}
-</div>
-
-<div class="columns">
-
-    <div class="column is-one-quarter">
-        <h4 class="subtitle">Thursday</h4>
-    </div>
-    {{#each Thursday as |plannedMeal|}}
-    <div class="column is-one-quarter">
-        {{#if plannedMeal.Meal}}
-        <h4>{{plannedMeal.Meal.name}}</h4>
-        {{else}}
-        <h4>No Meal Selected.</h4>
-        {{/if}}
-    </div>
-    {{/each}}
-</div>
-
-<div class="columns">
-
-    <div class="column is-one-quarter">
-        <h4 class="subtitle">Friday</h4>
-    </div>
-    {{#each Friday as |plannedMeal|}}
-    <div class="column is-one-quarter">
-        {{#if plannedMeal.Meal}}
-        <h4>{{plannedMeal.Meal.name}}</h4>
-        {{else}}
-        <h4>No Meal Selected.</h4>
-        {{/if}}
-    </div>
-    {{/each}}
-</div>
-
-<div class="columns">
-
-    <div class="column is-one-quarter">
-        <h4 class="subtitle">Saturday</h4>
-    </div>
-    {{#each Saturday as |plannedMeal|}}
-    <div class="column is-one-quarter">
-        {{#if plannedMeal.Meal}}
-        <h4>{{plannedMeal.Meal.name}}</h4>
-        {{else}}
-        <h4>No Meal Selected.</h4>
-        {{/if}}
-    </div>
-    {{/each}}
-</div>
-
-<div class="columns">
-
-    <div class="column is-one-quarter">
-        <h4 class="subtitle">Sunday</h4>
-    </div>
-    {{#each Sunday as |plannedMeal|}}
-    <div class="column is-one-quarter">
-        {{#if plannedMeal.Meal}}
-        <h4>{{plannedMeal.Meal.name}}</h4>
-        {{else}}
-        <h4>No Meal Selected.</h4>
-        {{/if}}
-    </div>
-    {{/each}}
 </div>
 
 <script src="./js/planMeal.js"></script>
