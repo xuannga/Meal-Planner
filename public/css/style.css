@@ -153,13 +153,15 @@ main {
 
 /* planning View */
 
-.planViewTitle {
+.planViewTitle,
+.meal-head {
     font-size: 50px;
     font-family: 'Asap Condensed', sans-serif;
     padding: 30px;
 }
 
-.planningView {
+.planningView,
+.meal-card {
     border-radius: 20px;
     border-color: rgba(253, 124, 4, 0.507);
     border-style: solid;
@@ -169,7 +171,8 @@ main {
 
 .planningView h3,
 .subtitle,
-.planMealView {
+.planMealView, 
+.meal-head{
     font-weight: bold;
     font-family: 'Rajdhani', sans-serif;
     font-size: 20px;
@@ -229,7 +232,8 @@ main {
         font-family: 'Asap Condensed', sans-serif;
         padding: 15px;
     }
-    .planningView {
+    .planningView,
+         {
         border-radius: 20px;
         border-color: rgba(253, 195, 4, 0.575);
         border-style: solid;
@@ -251,6 +255,17 @@ main {
         font-size: 10px;
         font-family: 'Asap Condensed', sans-serif;
     }
+
+/*List of current meals and Create Meal View*/
+
+.meal-head{
+    text-align: center;
+};
+#current-meals{
+    font-size:40px;
+}
+
+
     /* login */
     .loginPage {
         border-radius: 10px;
