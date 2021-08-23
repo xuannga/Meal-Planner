@@ -51,7 +51,7 @@ async function init() {
     // Initialize database connection
     try {
 
-        await sequelize.sync( {force: false} )
+        await sequelize.sync( {force: true} )
 
     } catch (error) {
         console.error(error)
