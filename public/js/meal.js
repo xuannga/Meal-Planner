@@ -1,14 +1,14 @@
 const mealFormHandler = async (event) => {
     event.preventDefault();
 
-    const mealName = document.querySelector('#mealName').value.trim();
+    const name = document.querySelector('#mealName').value.trim();
     const instructions = document.querySelector('#instructions').value.trim();
 
-    if (mealName && instructions) {
+    if (name && instructions) {
 
-        const response = await fetch(`/api/mealsRoute`, {
+        const response = await fetch(`/api/meals`, {
             method: 'POST',
-            body: JSON.stringify({mealName, instructions}),
+            body: JSON.stringify({name, instructions}),
             headers: {'Content-Type': 'application/json'},
         });
 

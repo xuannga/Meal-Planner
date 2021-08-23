@@ -3,11 +3,14 @@ const { Meals } = require('../../models');
 const withAuth = require('../../utils/auth.js');
 
     
-    router.post('/:id', async (req, res) => {
+    router.post('/', async (req, res) => {
       try { 
+        console.log('route hit')
+
         const mealData = await Meals.create({
         name: req.body.name,
         instructions: req.body.instructions,
+        user_id: req.user.id
       });
     
       return res.json(mealData);
