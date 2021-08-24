@@ -26,9 +26,6 @@ const seedDatabase = async () => {
 
         await Ingredient.bulkCreate(ingredientsData);
 
-        for (let id = 1; id <= 21; id++) {
-            await MealPlan.create({id})
-        }
     } catch (err) {
         console.error(err)
     }

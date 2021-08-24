@@ -9,6 +9,7 @@ MealPlan.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true,
         },
 
         meal_id: {
@@ -18,6 +19,21 @@ MealPlan.init(
 
         meal_qty: {
             type: DataTypes.INTEGER,
+            allowNull: true
+        },
+
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+
+        day: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+
+        time: {
+            type: DataTypes.STRING,
             allowNull: true
         }
     },
