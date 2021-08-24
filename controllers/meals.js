@@ -5,7 +5,7 @@ const { Meals } = require('../models');
 router.get('/', async (req, res) => {
     try {
         const CompleteMeal = await Meals.findAll({
-            where: {user_id: req.params.user}
+            where: {user_id: req.user.id}
         });
 
         let meals = CompleteMeal.map(c => c.get({ plain: true }));
