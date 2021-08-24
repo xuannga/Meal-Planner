@@ -35,8 +35,8 @@
     </div>
 
     <div class="form-group column is-one-third">
-        <label for="myMeal">Choose a meal from your Meals:</label>
-        <input list="meals" id="myMeal" name="myMeal"/>
+        <label for="myMeal">Choose a meal:</label> <br>
+        <input list="meals" id="myMeal" name="myMeal" autocomplete="off"/>
         <datalist id="meals">
             {{#each meals as |meal|}}
             <option value="{{meal.name}}">

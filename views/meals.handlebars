@@ -1,6 +1,20 @@
 <div>
   <body><h1 class="meal-head">Current Meals</h1></body>
   
+<form class="meal-form mb-2">
+  <h1 class="meal-head">Create a new meal</h1>
+  <div class="is-flex">
+    <label class="mealName mr-2">Name of meal: </label><br>
+    <input type="text" id="mealName">
+
+    <label class="instructions mr-2">Instructions: </label><br>
+    <input type="text" id="instructions">
+
+    <br>
+    <button id="submit" class="submit">Submit</button>
+  </div>
+</form>
+
   </div>
 {{#each meals as |meal|}}
 <div class="meal-card">
@@ -17,20 +31,5 @@
   </div>
 </div>
 {{/each}}
-
-
-<form class="meal-form">
-  <div>
-  <h1 class="meal-head">Create a new meal</h1>
-  <label class="mealName">Name of meal</label><br>
-  <input type="text" id="mealName">
-
-  <label class="instructions">Instructions</label><br>
-  <input type="text" id="instructions">
-
-  <br>
-  <button id="submit" class="submit">Submit</button>
-  </div>
-</form>
 
 <script src="/js/meal.js"></>
