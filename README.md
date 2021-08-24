@@ -11,9 +11,9 @@ This application is built using the MVC paradigm, created our own server-side AP
 
 ## Credits
 
--Joseph Pruitt
--George McMurray
--Kayla Morris
+-Joseph Pruitt\
+-George McMurray\
+-Kayla Morris\
 -Xuannga Nguyen
 
 ## Live Link
