@@ -162,18 +162,23 @@ main {
 }
 
 .planningView,
-.meal-card {
+.meal-card,
+.Refrig,
+.Drygoods,
+.cupboarditems {
     border-radius: 20px;
     border-color: rgba(253, 124, 4, 0.507);
     border-style: solid;
     padding: 30px;
+    margin-bottom: 20px;
     border-width: 10px;
 }
-
+.cupboarditems{
+    padding-right:690px;
+}
 .planningView h3,
 .subtitle,
-.planMealView, 
-{
+.planMealView{
     font-weight: bold;
     font-family: 'Rajdhani', sans-serif;
     font-size: 20px;
@@ -233,8 +238,7 @@ main {
         font-family: 'Asap Condensed', sans-serif;
         padding: 15px;
     }
-    .planningView,
-         {
+    .planningView {
         border-radius: 20px;
         border-color: rgba(253, 195, 4, 0.575);
         border-style: solid;
@@ -258,20 +262,21 @@ main {
     }
 
 /*List of current meals and Create Meal View*/
-.meal-head,
-{
+.meal-head {
     font-weight: bold;
     font-family: 'Rajdhani', sans-serif;
     font-size: 20px;
-
 };
 
 .meal-card,
 .meal-form {
+    display:flex;
     border-radius: 20px;
     border-color: rgba(253, 124, 4, 0.507);
     border-style: solid;
     padding: 30px;
+    padding-bottom:100px;
+    margin-bottom: 100px;
     border-width: 10px;}
 
 
