@@ -42,15 +42,9 @@ r2
     
 router.delete('/:id', async (req, res) => {
   try {
-    const mealData = await Meals.destroy(
-      {
-        ...req.body
-      },
-      {
-        where: {
-          id: req.params.id
-        }
-      });
+    const mealData = await Meals.destroy({
+      where: {id: req.params.id}
+    })
 
     return res.json(mealData)
   } catch (err) {
