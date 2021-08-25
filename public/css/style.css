@@ -78,7 +78,8 @@ main {
     margin: 2.5rem 2rem 2.5rem .75rem;
 }
 
-.fas,.far {
+.fas,
+.far {
     color: #ce4141;
     transition: var(--transition-speed);
 }
@@ -145,10 +146,7 @@ main {
 }
 
 .planningView,
-.meal-card,
-.Refrig,
-.Drygoods,
-.cupboarditems {
+.meal-card {
     border-radius: 20px;
     border-color: rgba(253, 124, 4, 0.507);
     border-style: solid;
@@ -156,12 +154,14 @@ main {
     margin-bottom: 20px;
     border-width: 10px;
 }
-.cupboarditems{
-    padding-right:690px;
+
+.cupboarditems {
+    padding-right: 690px;
 }
+
 .planningView h3,
 .subtitle,
-.planMealView{
+.planMealView {
     font-weight: bold;
     font-family: 'Rajdhani', sans-serif;
     font-size: 20px;
@@ -196,13 +196,80 @@ main {
 .Instructions {
     text-decoration: none;
 }
+
+
+/* singleMealView */
+
+.singleMealOpt {
+    border-radius: 20px;
+    border-color: rgba(18, 14, 247, 0.993);
+    border-style: solid;
+    padding: 30px;
+    border-width: 10px;
+}
+
+.singleMealtitle {
+    font-size: 50px;
+    font-family: 'Rajdhani', sans-serif;
+    padding: 20px;
+}
+
+.singleMealOpt h3,
+.label {
+    font-size: 20px;
+    font-family: 'Asap Condensed', sans-serif;
+}
+
+
+/* cupboardview */
+
+.cupTitle {
+    font-size: 50px;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.cupboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.cupboard h2 {
+    font-size: 25px;
+    font-family: 'Rajdhani', sans-serif;
+    padding: 20px;
+    text-align: center;
+}
+
+.cupboard form {
+    text-align: center;
+}
+
+.subCup {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.Refrig,
+.Drygoods,
+.cupboarditems {
+    border-radius: 20px;
+    border-color: rgba(253, 124, 4, 0.507);
+    border-style: solid;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-width: 10px;
+}
+
+
 /* media query */
 
 @media screen and (min-width: 701px) {
     .navbar:hover .link-text {
         display: block;
     }
-
     .navbar {
         width: 5rem;
         height: 100vh;
@@ -210,7 +277,6 @@ main {
         background-color: var(--bg-primary);
         transition: width 600ms ease;
     }
-
     .navbar:hover {
         width: 16rem;
     }
@@ -263,7 +329,6 @@ main {
         font-size: 10px;
         font-family: 'Asap Condensed', sans-serif;
     }
-
     .navbar {
         width: 100vw;
         height: 5rem;
@@ -271,7 +336,6 @@ main {
         bottom: 0;
         background-color: var(--bg-primary);
     }
-
     .navbar-nav {
         list-style: none;
         padding: 0;
@@ -282,34 +346,30 @@ main {
         height: 100%;
         width: 100%;
     }
-
     .nav-link {
         justify-content: center;
     }
-
     main {
         margin: 0;
     }
-
-/*List of current meals and Create Meal View*/
-.meal-head {
-    font-weight: bold;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 20px;
-};
-
-.meal-card,
-.meal-form {
-    display:flex;
-    border-radius: 20px;
-    border-color: rgba(253, 124, 4, 0.507);
-    border-style: solid;
-    padding: 30px;
-    padding-bottom:100px;
-    margin-bottom: 100px;
-    border-width: 10px;}
-
-
+    /*List of current meals and Create Meal View*/
+    .meal-head {
+        font-weight: bold;
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 20px;
+    }
+    ;
+    .meal-card,
+    .meal-form {
+        display: flex;
+        border-radius: 20px;
+        border-color: rgba(253, 124, 4, 0.507);
+        border-style: solid;
+        padding: 30px;
+        padding-bottom: 100px;
+        margin-bottom: 100px;
+        border-width: 10px;
+    }
     /* login */
     .loginPage {
         border-radius: 10px;
@@ -321,5 +381,51 @@ main {
     .loginPage h2 {
         font-size: 25px;
         font-family: 'Rajdhani', sans-serif;
+    }
+    /* singleMealView */
+    .singleMealOpt {
+        border-radius: 10px;
+        border-color: rgba(108, 246, 73, 0.993);
+        border-style: solid;
+        padding: 15px;
+        border-width: 5px;
+    }
+    .singleMealtitle {
+        font-size: 25px;
+        font-family: 'Rajdhani', sans-serif;
+        padding: 10px;
+    }
+    .singleMealOpt h3,
+    .label {
+        font-size: 10px;
+        font-family: 'Asap Condensed', sans-serif;
+    }
+    .singleMealOptBtn {
+        height: 50%;
+        width: 50%;
+        font-size: 50%;
+        color: red;
+    }
+    /* cupboardview */
+    .cupboard {
+        flex-direction: column;
+    }
+    .cupboard h2 {
+        font-size: 25px;
+        font-family: 'Rajdhani', sans-serif;
+        padding: 20px;
+    }
+    .cupboarditems form {
+        text-align: center;
+    }
+    .Refrig,
+    .Drygoods,
+    .cupboarditems {
+        border-radius: 10px;
+        border-color: rgba(255, 3, 3, 0.507);
+        border-style: solid;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-width: 5px;
     }
 }

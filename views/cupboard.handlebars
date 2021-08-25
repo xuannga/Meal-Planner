@@ -1,55 +1,60 @@
-<section style="display:flex">
-  <div style="flex-direction: column;">
-    <h1>Cupboard</h1>
+<div>
+<h1 class="cupTitle">Cupboard</h1>
+
+<div class="cupboard">
+
+  <div class="cupboarditems" style="width: 100%; ">
+    
+    <h2 >Input Cupboard Items</h2>
+    <form>
+      <label for="item">Item</label><br>
+      <input id="cupItemName" type="text"><br>
+      <label for="quantity">Quantity</label><br>
+      <input id="cupItemQuantity" type="number"><br>
+      <label for="Unit">Measurement</label><br>
+      <input id="cupItemUOM" type="text"><br>
+    
+      <input type="checkbox" id="Refrig" name="Refrig" value="Refrig" checked>
+      <label for="cupbds">Refrigerate</label>
+    </form>
+    <br>
+    <input id="subCup" name='subCup' type="button" value="Submit" class="subCup">
+    <br>
+  </div>
     <div class="Refrig">
-      <h3> Refrigerated Items </h3>
-      <table>
+      <h3> Refrigerated Items:</h3>
+      <br>
+      <table style="width: 100%;">
         <tr>
           <th>Item</th>
           <th>Quantity</th>
           <th>Unit of Measure</th>
         </tr>
         {{#each Refrigs as |Refrig|}}
-        {{>refrig-details Refrig=Refrig}}
+        <td>{{>refrig-details Refrig=Refrig}}</td>
         {{/each}}
       </table>
     </div>
+
     <div class="Drygoods">
-      <h3>Dry Good Items</h3>
-      <table>
+      <h3>Dry Good Items:</h3>
+      <br>
+      <table style="width: 100%;">
         <tr>
           <th>Item</th>
           <th>Quantity</th>
           <th>Unit of Measure</th>
         </tr>
         {{#each Drys as |Drygood|}}
-        {{>drygood-details Drygood=Drygood}}
+        <td>{{>drygood-details Drygood=Drygood}}</td>
         {{/each}}
       </table>
     </div>
-  </div>
-  <div class="cupboarditems" style="margin: 2em; width:40%">
-    <h2>Input Cupboard Items</h2>
-    <table>
-      <tr>
-        <th>Item</th>
-        <th>Quantity</th>
-        <th>Unit of Measure</th>
-        <th>Storage</th>
-      </tr>
-      <tr>
-        <td ><input id="cupItemName" type="text"></td>
-        <td ><input id="cupItemQuantity"type="number"></td>
-        <td ><input id="cupItemUOM"type="text"></td>
-        <td>
-          <div>
-            <input type="checkbox" id="Refrig" name="Refrig" value="Refrig" checked>
-            <label for="cupbds">Refrig</label>
-          </div>
-        </td>
-      </tr>
-      <input id="subCup" name='subCup' type="button" value="Submit" >
-  </div>
-</section>
+
+  
+  
+</div>
+
+</div>
 
 <script src="/js/render.js"></script>

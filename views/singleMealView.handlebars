@@ -1,28 +1,34 @@
 <div class="container has-text-centered" id="meal-id" data-id="{{id}}">
-    <h1 class="title">{{name}}</h1>
+    <h1 class="singleMealtitle">{{name}}</h1>
 </div>
 
-<p>{{instructions}}</p>
+<div class="singleMealOpt">
 
-<ul>
-    {{#each Cupboards as |ingredient|}}
-    <li>{{ingredient.name}}</li>
-    {{/each}}
-</ul>
+    <form class="form ingredient-form">
+        <label for="myIngredient" class="label">Choose an item from your cupboard:</label>
+        <input list="cupboard-items" id="myIngredient" name="myIngredient" />
+        <datalist id="cupboard-items">
+            {{#each cupboard as |item|}}
+            <option value="{{item.name}}">
+                {{/each}}
+        </datalist>
 
-<form class="form ingredient-form">
-    <label for="myIngredient">Choose an item from your cupboard:</label>
-    <input list="cupboard-items" id="myIngredient" name="myIngredient" />
-    <datalist id="cupboard-items">
-        {{#each cupboard as |item|}}
-        <option value="{{item.name}}">
+        <label for="quantity" class="label">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1">
+
+        <button class="btn btn-primary singleMealOptBtn" type="submit">Add Ingredient</button>
+    </form>
+
+<br>
+    <h3>Ingredients:</h3>
+    <ul>
+        {{#each Cupboards as |ingredient|}}
+        <li>-{{ingredient.name}}</li>
         {{/each}}
-    </datalist>
+    </ul>
+    <br>
+    <h3>Instructions: <br> {{instructions}}</h3>
 
-    <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" name="quantity" min="1">
-
-    <button class="btn btn-primary" type="submit">Add Ingredient</button>
-</form>
+</div>
 
 <script src="/js/addIngredient.js"></script>

@@ -3,6 +3,7 @@
     <p id="planDirect">Here you can plan your meals by choosing the day of the week, when it will be eaten (i.e breakfast or lunch) and what will be eaten.</p>
 </div>
 
+<div class="planningView">
 <form class="form planning-form columns">
 
     <div class="form-group column is-one-third">
@@ -76,7 +77,7 @@
 
     <div class="column is-one-quarter">
         {{#if Monday.Breakfast}}
-        <a href="/meals/{{Monday.Breakfast.Meal.id}}">{{Monday.Breakfast.Meal.name}}</a>
+        <a href="/meals/{{Monday.Breakfast.Meal.id}}" class="planMealView">{{Monday.Breakfast.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -84,7 +85,7 @@
 
     <div class="column is-one-quarter">
         {{#if Monday.Lunch}}
-        <a href="/meals/{{Monday.Lunch.Meal.id}}">{{Monday.Lunch.Meal.name}}</a>
+        <a href="/meals/{{Monday.Lunch.Meal.id}}" class="planMealView">{{Monday.Lunch.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -92,7 +93,7 @@
 
     <div class="column is-one-quarter">
         {{#if Monday.Dinner}}
-        <a href="/meals/{{Monday.Dinner.Meal.id}}">{{Monday.Dinner.Meal.name}}</a>
+        <a href="/meals/{{Monday.Dinner.Meal.id}}" class="planMealView">{{Monday.Dinner.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -108,7 +109,7 @@
 
     <div class="column is-one-quarter">
         {{#if Tuesday.Breakfast}}
-        <a href="/meals/{{Tuesday.Breakfast.Meal.id}}">{{Tuesday.Breakfast.Meal.name}}</a>
+        <a href="/meals/{{Tuesday.Breakfast.Meal.id}}" class="planMealView">{{Tuesday.Breakfast.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -116,7 +117,7 @@
 
     <div class="column is-one-quarter">
         {{#if Tuesday.Lunch}}
-        <a href="/meals/{{Tuesday.Lunch.Meal.id}}">{{Tuesday.Lunch.Meal.name}}</a>
+        <a href="/meals/{{Tuesday.Lunch.Meal.id}}" class="planMealView">{{Tuesday.Lunch.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -124,7 +125,7 @@
 
     <div class="column is-one-quarter">
         {{#if Tuesday.Dinner}}
-        <a href="/meals/{{Tuesday.Dinner.Meal.id}}">{{Tuesday.Dinner.Meal.name}}</a>
+        <a href="/meals/{{Tuesday.Dinner.Meal.id}}" class="planMealView">{{Tuesday.Dinner.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -140,7 +141,7 @@
 
     <div class="column is-one-quarter">
         {{#if Wednesday.Breakfast}}
-        <a href="/meals/{{Wednesday.Breakfast.Meal.id}}">{{Wednesday.Breakfast.Meal.name}}</a>
+        <a href="/meals/{{Wednesday.Breakfast.Meal.id}}" class="planMealView">{{Wednesday.Breakfast.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -148,7 +149,7 @@
 
     <div class="column is-one-quarter">
         {{#if Wednesday.Lunch}}
-        <a href="/meals/{{Wednesday.Lunch.Meal.id}}">{{Wednesday.Lunch.Meal.name}}</a>
+        <a href="/meals/{{Wednesday.Lunch.Meal.id}}" class="planMealView">{{Wednesday.Lunch.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -156,7 +157,7 @@
 
     <div class="column is-one-quarter">
         {{#if Wednesday.Dinner}}
-        <a href="/meals/{{Wednesday.Dinner.Meal.id}}">{{Wednesday.Dinner.Meal.name}}</a>
+        <a href="/meals/{{Wednesday.Dinner.Meal.id}}" class="planMealView">{{Wednesday.Dinner.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -172,7 +173,7 @@
 
     <div class="column is-one-quarter">
         {{#if Thursday.Breakfast}}
-        <a href="/meals/{{Thursday.Breakfast.Meal.id}}">{{Thursday.Breakfast.Meal.name}}</a>
+        <a href="/meals/{{Thursday.Breakfast.Meal.id}}" class="planMealView">{{Thursday.Breakfast.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -180,7 +181,7 @@
 
     <div class="column is-one-quarter">
         {{#if Thursday.Lunch}}
-        <a href="/meals/{{Thursday.Lunch.Meal.id}}">{{Thursday.Lunch.Meal.name}}</a>
+        <a href="/meals/{{Thursday.Lunch.Meal.id}}" class="planMealView">{{Thursday.Lunch.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -188,7 +189,7 @@
 
     <div class="column is-one-quarter">
         {{#if Thursday.Dinner}}
-        <a href="/meals/{{Thursday.Dinner.Meal.id}}">{{Thursday.Dinner.Meal.name}}</a>
+        <a href="/meals/{{Thursday.Dinner.Meal.id}}" class="planMealView">{{Thursday.Dinner.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -204,7 +205,7 @@
 
     <div class="column is-one-quarter">
         {{#if Friday.Breakfast}}
-        <a href="/meals/{{Friday.Breakfast.Meal.id}}">{{Friday.Breakfast.Meal.name}}</a>
+        <a href="/meals/{{Friday.Breakfast.Meal.id}}" class="planMealView">{{Friday.Breakfast.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -212,7 +213,7 @@
 
     <div class="column is-one-quarter">
         {{#if Friday.Lunch}}
-        <a href="/meals/{{Friday.Lunch.Meal.id}}">{{Friday.Lunch.Meal.name}}</a>
+        <a href="/meals/{{Friday.Lunch.Meal.id}}" class="planMealView">{{Friday.Lunch.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -220,7 +221,7 @@
 
     <div class="column is-one-quarter">
         {{#if Friday.Dinner}}
-        <a href="/meals/{{Friday.Dinner.Meal.id}}">{{Friday.Dinner.Meal.name}}</a>
+        <a href="/meals/{{Friday.Dinner.Meal.id}}" class="planMealView">{{Friday.Dinner.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -236,7 +237,7 @@
 
     <div class="column is-one-quarter">
         {{#if Saturday.Breakfast}}
-        <a href="/meals/{{Saturday.Breakfast.Meal.id}}">{{Saturday.Breakfast.Meal.name}}</a>
+        <a href="/meals/{{Saturday.Breakfast.Meal.id}}" class="planMealView">{{Saturday.Breakfast.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -244,7 +245,7 @@
 
     <div class="column is-one-quarter">
         {{#if Saturday.Lunch}}
-        <a href="/meals/{{Saturday.Lunch.Meal.id}}">{{Saturday.Lunch.Meal.name}}</a>
+        <a href="/meals/{{Saturday.Lunch.Meal.id}}" class="planMealView">{{Saturday.Lunch.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -252,7 +253,7 @@
 
     <div class="column is-one-quarter">
         {{#if Saturday.Dinner}}
-        <a href="/meals/{{Saturday.Dinner.Meal.id}}">{{Saturday.Dinner.Meal.name}}</a>
+        <a href="/meals/{{Saturday.Dinner.Meal.id}}" class="planMealView">{{Saturday.Dinner.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -268,7 +269,7 @@
 
     <div class="column is-one-quarter">
         {{#if Sunday.Breakfast}}
-        <a href="/meals/{{Sunday.Breakfast.Meal.id}}">{{Sunday.Breakfast.Meal.name}}</a>
+        <a href="/meals/{{Sunday.Breakfast.Meal.id}}" class="planMealView">{{Sunday.Breakfast.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -276,7 +277,7 @@
 
     <div class="column is-one-quarter">
         {{#if Sunday.Lunch}}
-        <a href="/meals/{{Sunday.Lunch.Meal.id}}">{{Sunday.Lunch.Meal.name}}</a>
+        <a href="/meals/{{Sunday.Lunch.Meal.id}}" class="planMealView">{{Sunday.Lunch.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
@@ -284,12 +285,12 @@
 
     <div class="column is-one-quarter">
         {{#if Sunday.Dinner}}
-        <a href="/meals/{{Sunday.Dinner.Meal.id}}">{{Sunday.Dinner.Meal.name}}</a>
+        <a href="/meals/{{Sunday.Dinner.Meal.id}}" class="planMealView">{{Sunday.Dinner.Meal.name}}</a>
         {{else}}
         <h4>No Meal Selected.</h4>
         {{/if}}
     </div>
 
 </div>
-
+</div>
 <script src="/js/planMeal.js"></script>
