@@ -1,5 +1,4 @@
 <div>
-  <body><h1 class="meal-head">Current Meals</h1></body>
   
 <form class="meal-form mb-2">
   <h1 class="meal-head">Create a new meal</h1>
@@ -15,21 +14,37 @@
   </div>
 </form>
 
+<h1 class="meal-head">Current Meals</h1>
+
   </div>
 {{#each meals as |meal|}}
-<div class="meal-card">
-  <a href="/meals/{{meal.id}}">
-    <div class="meal-card-header">
-      {{meal.name}}
+<a href="/meals/{{meal.id}}">
+  <div class="meal-card">
+
+    <div class="is-flex is-justify-content-space-between">
+
+      <div>
+
+        <div class="meal-card-header mb-2">
+          <h3 class="is-size-3">{{meal.name}}</h3>
+        </div>
+
+        <div class="card-body">
+          <p class="is-size-5 Instructions">
+            Instructions: {{meal.instructions}}
+          </p>
+        </div>
+
+      </div>
+
+      <div>
+        <button class="btn btn-primary meal-delete" data-id="{{meal.id}}"> <i class="fas fa-trash-alt fa-3x" data-id="{{meal.id}}"></i> </button>
+      </div>
+
     </div>
-  </a>
-  <div class="card-body">
-    <p>
-      Instructions:
-      {{meal.instructions}}
-    </p>
+
   </div>
-</div>
+</a>
 {{/each}}
 
 <script src="/js/meal.js"></>
