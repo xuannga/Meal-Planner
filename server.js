@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+var compression = require('compression');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
